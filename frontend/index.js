@@ -10,29 +10,17 @@ submit.addEventListener('click', (e) => {
 
 
 //populate top playlists list
-const topList = document.getElementById('topList')
-
 fetch('http://localhost:3000/playlists')
 .then(r => r.json())
 .then(playlists => renderPlaylists(playlists))
 
 function renderPlaylists(playlists) {
     const topPlaylists = playlists.data
-    const liItems = topPlaylists.map((playlist) => {
-        const li = document.createElement('li')
-        li.innerText = playlist.attributes.name
-        return li
-    })
-
-    liItems.forEach((li) => {
-        topList.appendChild(li)
+    topPlaylists.forEach((playlist) => {
+        const i = new Playlist({id: playlist.id, ...playlist.attributes})
+        i.addToDom()
     })
 }
-
-
-// function loadPlaylistLi(item) {
-//     item.innerHTML = `<li> Song # </li>`
-// }
 
 
 // load genre options

@@ -255,3 +255,40 @@ Processing by PlaylistsController#index as */*
 Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 1456)
 
 
+Started GET "/playlists" for ::1 at 2021-02-16 12:57:34 -0600
+Processing by PlaylistsController#index as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/playlists_controller.rb:4:in `index'
+  [1m[36mPlaylist Load (0.7ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 1.8ms | Allocations: 2049)
+
+
+Started GET "/playlists" for ::1 at 2021-02-16 12:57:44 -0600
+Processing by PlaylistsController#index as */*
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:4:in `index'
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.4ms | Allocations: 1456)
+
+
+Started GET "/playlists" for ::1 at 2021-02-16 12:57:58 -0600
+Processing by PlaylistsController#index as */*
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:4:in `index'
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 1456)
+
+
+Started GET "/playlists" for ::1 at 2021-02-16 12:58:06 -0600
+Processing by PlaylistsController#index as */*
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:4:in `index'
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.4ms | Allocations: 1456)
+
+
+Started GET "/playlists" for ::1 at 2021-02-16 12:58:17 -0600
+Processing by PlaylistsController#index as */*
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/controllers/playlists_controller.rb:4:in `index'
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.3ms | Allocations: 1456)
+
+
