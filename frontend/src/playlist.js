@@ -28,7 +28,19 @@ class Playlist {
         return this.li
     }
 
-    addToDom(li) {
+    addToDom() {
         Playlist.topList.appendChild(this.render())
+        // debugger
+        this.li.addEventListener('click', this.displaySongs)
     }
+
+    displaySongs = (e) => {
+        const songList = document.createElement('ul')
+        const song = document.createElement('li')
+        song.innerText = "song name test"
+        songList.appendChild(song)
+        e.target.appendChild(songList)
+    }
+
+
 }

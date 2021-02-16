@@ -9,6 +9,7 @@ submit.addEventListener('click', (e) => {
 
 
 
+
 //populate top playlists list
 fetch('http://localhost:3000/playlists')
 .then(r => r.json())
