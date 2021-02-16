@@ -15,13 +15,18 @@
     <div class='container'>
         <div class='row'>
             <!-- Playlist Builder Container -->
-            <div id='builder' class='col'>
-                builder
+            <div id='builder' class='col-8'>
+                <form action="#">
+                    <input type="text" id='genre'>
+                    <input type="text" id='cadence'>
+                    <input type='submit' id='submit'>
+                </form>
             </div>
 
             <!-- Top Playlists Container -->
-            <div id='top' class='col'>
-                top
+            <div id='top' class='col-4'>
+                <h3>Top Playlists</h3>
+                <ul id=topList></ul>
             </div>
         </div>
     </div>
