@@ -13,8 +13,17 @@ submit.addEventListener('click', (e) => {
 const topList = document.getElementById('topList')
 
 document.addEventListener("DOMContentLoaded", () => {
-    const liItem = document.createElement('li')
-    liItem.innerHTML = `<li> hi there </li>`
-    topList.appendChild(liItem)
+    loadTopPlaylists()
 })
 
+function loadTopPlaylists() {
+    for (let i=0; i<10; i++) {
+        const liItem = document.createElement('li')
+        loadPlaylistLi(liItem)
+        topList.appendChild(liItem)
+    }
+}
+
+function loadPlaylistLi(item) {
+    item.innerHTML = `<li> hi there </li>`
+}
