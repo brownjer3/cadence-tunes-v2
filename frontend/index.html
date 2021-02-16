@@ -16,9 +16,14 @@
         <div class='row'>
             <!-- Playlist Builder Container -->
             <div id='builder' class='col-8'>
+                <h3>Playlist Builder</h3>
                 <form action="#">
-                    <input type="text" id='genre'>
-                    <input type="text" id='cadence'>
+                    <label for="genre">Genre</label>
+                    <input type="text" id='genre' name='genre'>
+
+                    <label for="cadence">Cadence</label>
+                    <input type="number" id='cadence' name='cadence'>
+
                     <input type='submit' id='submit'>
                 </form>
             </div>
