@@ -12,18 +12,23 @@ submit.addEventListener('click', (e) => {
 //populate top playlists list
 const topList = document.getElementById('topList')
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadTopPlaylists()
-    loadGenres()
-})
+fetch('http://localhost:3000/playlists')
+.then(r => r.json())
+.then(playlists => renderPlaylists(playlists))
 
-function loadTopPlaylists() {
-    for (let i=0; i<10; i++) {
-        const liItem = document.createElement('div')
-        liItem.innerHTML = `<li id='playlist-${i}'> Playlist ${i+1} </li>`
-        topList.appendChild(liItem)
-    }
+function renderPlaylists(playlists) {
+    const topPlaylists = playlists.data
+    const liItems = topPlaylists.map((playlist) => {
+        const li = document.createElement('li')
+        li.innerText = playlist.attributes.name
+        return li
+    })
+
+    liItems.forEach((li) => {
+        topList.appendChild(li)
+    })
 }
+
 
 // function loadPlaylistLi(item) {
 //     item.innerHTML = `<li> Song # </li>`
