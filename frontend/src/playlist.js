@@ -42,5 +42,13 @@ class Playlist {
         e.target.appendChild(songList)
     }
 
+    renderPlaylists(playlists) {
+        const topPlaylists = playlists.data
+        topPlaylists.forEach((playlist) => {
+            const i = new Playlist({id: playlist.id, ...playlist.attributes})
+            i.addToDom()
+        })
+    }
+
 
 }

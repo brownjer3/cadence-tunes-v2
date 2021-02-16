@@ -1,3 +1,7 @@
+const port = "http://localhost:3000"
+const playlistApi = new PlaylistApi(port)
+
+
 // submit form button logic
 const submit = document.getElementById('submit')
 
@@ -6,22 +10,6 @@ submit.addEventListener('click', (e) => {
     //check that the fields have content
     //submit fetch request
 })
-
-
-
-
-//populate top playlists list
-fetch('http://localhost:3000/playlists')
-.then(r => r.json())
-.then(playlists => renderPlaylists(playlists))
-
-function renderPlaylists(playlists) {
-    const topPlaylists = playlists.data
-    topPlaylists.forEach((playlist) => {
-        const i = new Playlist({id: playlist.id, ...playlist.attributes})
-        i.addToDom()
-    })
-}
 
 
 // load genre options
@@ -36,3 +24,5 @@ function loadGenres() {
         genreOptions.appendChild(input)
     }
 }
+
+playlistApi.getPlaylists()
