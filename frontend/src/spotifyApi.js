@@ -3,5 +3,12 @@ class SpotifyApi {
 
     }
 
-    
+    //fetch genres
+    static fetchGenres() {
+        fetch()
+    }
+    //fetch recommendations
+    //create playlist
+
+
 }
