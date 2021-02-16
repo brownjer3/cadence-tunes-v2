@@ -1,0 +1,7 @@
+class SpotifyApi {
+    constructor() {
+
+    }
+
+    
+}

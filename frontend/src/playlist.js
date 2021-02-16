@@ -1,6 +1,3 @@
-// setting all properties (houses HTML for the Dom)
-// attach event listeners
-
 class Playlist {
 
     static all = []
