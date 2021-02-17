@@ -25,7 +25,7 @@ class SpotifyApi {
             }
         })
         .then(r => r.json())
-        .then(json => console.log(json))
+        .then(json => console.log(json)) 
     }
 
     static fetchGenres() {
