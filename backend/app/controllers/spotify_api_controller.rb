@@ -1,14 +1,17 @@
 class SpotifyApiController < ApplicationController
+    require 'rspotify'
 
     def authenticate
-
+        # render text: "testing"
+        RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+        genres = RSpotify::Recommendations.available_genre_seeds
+        render json: genres
     end
 
 end
 
 
-# this.apiTokenUrl = "https://accounts.spotify.com/api/token"
-# this.genreUrl = "https://api.spotify.com/v1/recommendations/available-genre-seeds"
+
 
 # // const encoded = btoa(`${ENV["SPOTIFY_CLIENT_ID"]}:${ENV["SPOTIFY_CLIENT_SECRET"]}`)
 # const encoded = "NzIyMWRiODEyZDY5NDhjZThjNTk2MThmODdiYjUyY2E6MDg4YjkxODk2OTYyNDRmZDg2YTIwODU2YzQ5MTk5YmQ="

@@ -1,7 +1,7 @@
 //this top section should stay here in index.js
 const port = "http://localhost:3000"
 const playlistApi = new PlaylistApi(port)
-const spotifyApi = new SpotifyApi()
+const spotifyApi = new SpotifyApi(port)
 
 
 // submit form button
@@ -14,4 +14,4 @@ submit.addEventListener('click', (e) => {
 })
 
 playlistApi.getPlaylists()
-// spotifyApi.authenticate()
+spotifyApi.getGenres()

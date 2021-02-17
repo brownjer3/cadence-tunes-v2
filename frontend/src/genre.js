@@ -1,5 +1,15 @@
 class Genre {
 
+    static all = []
+
+    constructor(name) {
+        this.name = name
+
+        this.li = document.createElement('li')
+
+        Genre.all.push(this)
+    }
+
     // load genre options
     static loadGenres() {
         const genreOptions = document.getElementById('genres')
