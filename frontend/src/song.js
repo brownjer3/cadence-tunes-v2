@@ -39,6 +39,10 @@ class Song {
     handleClick = (e) => {
         // if click on name -> preview, if add -> add to WIP
         if (e.target.tagName == "svg") {
+            if (Playlist.inProgress.childElementCount === 0) {
+                const playlistName = prompt("Give your playlist a name:")
+                document.getElementById('playlistName').innerText = playlistName
+            }
             const song = Song.all.find(song => song.name === e.target.parentElement.id)
             song.addToWIP()
         }
@@ -47,7 +51,5 @@ class Song {
     addToWIP = () => {
         Playlist.inProgress.appendChild(this.render())
     }
-
-
 
 }
