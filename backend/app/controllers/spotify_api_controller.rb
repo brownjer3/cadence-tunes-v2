@@ -2,10 +2,22 @@ class SpotifyApiController < ApplicationController
     require 'rspotify'
 
     def authenticate
-        # render text: "testing"
+        # this authenticate action (and future refresh action) might need to be a before_action
         RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
         genres = RSpotify::Recommendations.available_genre_seeds
         render json: genres
+    end
+
+    def recs
+        byebug
+        recs = RSpotify::Recommendations.generate(seed_genres: [params['genre']], target_tempo: [params['cadence']])
+        render json: recs.tracks
+    end
+
+    private
+    def params
+        # DO NOT RUN SERVER UNTIL THIS CHANGES!!!
+        # params.permit(:genre, :cadence)
     end
 
 end

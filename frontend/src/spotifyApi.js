@@ -1,12 +1,13 @@
 // this class should...
 // fetch genres
 // fetch recommendations
-// create playlist
+// create playlists
 
 class SpotifyApi {
 
-    constructor() {
+    constructor(port) {
         this.authUrl = `${port}/spotifyAuth`
+        this.recsUrl = `${port}/spotifyRecs`
     }
 
     getGenres() {
@@ -14,13 +15,22 @@ class SpotifyApi {
         .then(r => r.json())
         .then(genres => {
             genres.forEach((genre) => {
-                // debugger
                 const g = new Genre(genre)
                 g.addToDom()
             })
         })
     }
 
+    getRecs() {
+        fetch(this.recsUrl)
+        .then((r) => {debugger})
+        .then(genres => {
+            genres.forEach((genre) => {
+                const g = new Genre(genre)
+                g.addToDom()
+            })
+        })
+    }
 
 
 }

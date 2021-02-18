@@ -21,21 +21,17 @@ class Genre {
     addToDom() {
         const genreOptions = document.getElementById('genres')
         genreOptions.appendChild(this.render())
-        //add event listener here
+        //add event listener here in case i want to hide the genres and only show cadence form
+        // this.input.addEventListener('click', getCadence)
     }
 
-    // load genre options
-    static loadGenres() {
-        const genreOptions = document.getElementById('genres')
-        for (let i=0; i<20; i++) {
-            const input = document.createElement('div')
-            input.classList.add("col-2", "p-3")
-            input.innerHTML = `<input id='genre-${i}' type="radio" class="btn-check" name="genre" value='genre-${i}'>
-                <label class="btn btn-primary" for='genre-${i}'>Genre ${i+1}</label>
-            `
-            genreOptions.appendChild(input)
-        }
-    }
+    // displaySongs = (e) => {
+    //     const songList = document.createElement('ul')
+    //     const song = document.createElement('li')
+    //     song.innerText = "song name test"
+    //     songList.appendChild(song)
+    //     e.target.appendChild(songList)
+    // }
 
 
 }
