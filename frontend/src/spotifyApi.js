@@ -33,16 +33,13 @@ class SpotifyApi {
         fetch(this.recsUrl + new URLSearchParams(data))
         .then((r) => r.json())
         .then(recs => {
-            const builder = document.getElementById('builder')
-            builder.innerHTML = ""
-            const ul = document.createElement('ul')
-            builder.appendChild(ul)
+            // const builder = document.getElementById('builder')
+            // builder.innerHTML = ""
+            // const ul = document.createElement('ul')
+            // builder.appendChild(ul)
             recs.forEach((rec) => {
-                const li = document.createElement('li')
-                li.innerHTML = `
-                    <li>${rec['name']}</li>
-                `
-                ul.appendChild(li)
+                const song = new Song(rec['name'])
+                song.addToDom()
             })
         })
     }
