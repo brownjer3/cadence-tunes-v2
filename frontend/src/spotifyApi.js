@@ -32,7 +32,9 @@ class SpotifyApi {
         .then((r) => r.json())
         .then(recs => {
             recs.forEach((rec) => {
-                const song = new Song(rec['name'])
+                // debugger
+                const song = new Song({...rec})
+                
                 song.addToDom()
             })
         })

@@ -4,8 +4,12 @@ class Song {
     static recList = document.getElementById('recList')
     static form = document.getElementById('form')
 
-    constructor(name) {
-        this.name = name
+    constructor(data) {
+        this.name = data.name
+        this.artist = data.artist[0].name
+        this.length = data.duration_ms / 60000
+        this.photo_url = data.album.images[2].url
+        this.preview_url = data.preview_url
 
         this.div = document.createElement('div')
         // this.li = document.createElement('li')
@@ -40,6 +44,7 @@ class Song {
         // if click on name -> preview, if add -> add to WIP
         if (e.target.tagName == "svg") {
             if (Playlist.inProgress.childElementCount === 0) {
+                // this might be where i need to ask for spotify access
                 const playlistName = prompt("Give your playlist a name:")
                 document.getElementById('playlistName').innerText = playlistName
             }
