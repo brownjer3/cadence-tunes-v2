@@ -9,11 +9,11 @@ const spotifyApi = new SpotifyApi(port)
 const submit = document.getElementById('submit')
 
 submit.addEventListener('click', (e) => {
+    e.preventDefault()
 
     //check that the fields have content
     //submit fetch request
     spotifyApi.getRecs()
-    e.preventDefault()
 })
 
 playlistApi.getPlaylists()

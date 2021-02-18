@@ -11,7 +11,7 @@ class Genre {
         Genre.all.push(this)
     }
 
-    render() {
+    render() { 
         this.input.innerHTML = `<input id='${this.name}' type="radio" class="btn-check" name="genre" value='${this.name}'>
         <label class="btn btn-primary" for='${this.name}'>${this.name}</label>
     `
