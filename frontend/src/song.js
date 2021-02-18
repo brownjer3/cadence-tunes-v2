@@ -31,8 +31,8 @@ class Song {
     addToDom() {
         Song.form.style.display = "none"
         Song.recList.appendChild(this.render())
-        // add event listener to select song
-        
+        // add event listeners 1) to select song and 2) preview song
+
     }
 
     previewSong() {
