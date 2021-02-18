@@ -27,7 +27,6 @@ class Playlist {
 
     addToDom() {
         Playlist.topList.appendChild(this.render())
-        // debugger
         this.li.addEventListener('click', this.displaySongs)
     }
 

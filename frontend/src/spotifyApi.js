@@ -11,11 +11,12 @@ class SpotifyApi {
 
     getGenres() {
         fetch(this.authUrl)
-        .then((r) => r.json())
-        .then(json => {
-            json.genres.forEach((genre) => {
-                const i = new Genre(genre)
-                i.addToDom()
+        .then(r => r.json())
+        .then(genres => {
+            genres.forEach((genre) => {
+                // debugger
+                const g = new Genre(genre)
+                g.addToDom()
             })
         })
     }

@@ -5,9 +5,23 @@ class Genre {
     constructor(name) {
         this.name = name
 
-        this.li = document.createElement('li')
+        this.input = document.createElement('div')
+        this.input.classList.add("col-2", "p-3")
 
         Genre.all.push(this)
+    }
+
+    render() {
+        this.input.innerHTML = `<input id='${this.name}' type="radio" class="btn-check" name="genre" value='${this.name}'>
+        <label class="btn btn-primary" for='${this.name}'>${this.name}</label>
+    `
+        return this.input
+    }
+
+    addToDom() {
+        const genreOptions = document.getElementById('genres')
+        genreOptions.appendChild(this.render())
+        //add event listener here
     }
 
     // load genre options
