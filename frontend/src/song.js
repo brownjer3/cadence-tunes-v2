@@ -5,10 +5,10 @@ class Song {
     static form = document.getElementById('form')
 
     constructor(data) {
-        // debugger
         this.name = data.name
         this.spotify_id = data.id
         this.artist = data.artists[0].name
+        this.album = data.album.name
         this.length = Song.milisecondsToMinutes(data.duration_ms)
         this.photo_url = data.album.images[0].url
         this.preview_url = data.preview_url
@@ -76,7 +76,7 @@ class Song {
         songDetails.classList.add('songDetails')
         songDetails.innerHTML = `
                 <div>Artist: ${this.artist}</div>
-                <div>Album: TBD</div>
+                <div>Album: ${this.album}</div>
                 <div>Length: ${this.length}</div>
         `
         songDetails.appendChild(this.includePreview())
