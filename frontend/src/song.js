@@ -7,6 +7,7 @@ class Song {
     constructor(data) {
         // debugger
         this.name = data.name
+        this.spotify_id = data.id
         this.artist = data.artists[0].name
         this.length = data.duration_ms / 60000
         this.photo_url = data.album.images[0].url
@@ -21,7 +22,7 @@ class Song {
 
     render() {
         this.div.innerHTML = `
-            <li id='${this.name}'>
+            <li id='${this.spotify_id}'>
                 <span>${this.name}</span> by <span>${this.artist}</span>
                 <svg id='details' xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -42,7 +43,7 @@ class Song {
     }
 
     handleClick = (e) => {
-        const song = Song.all.find(song => song.name === e.target.parentElement.id)
+        const song = Song.all.find(song => song.spotify_id === e.target.parentElement.id)
         if (e.target.id === "add") {
             if (Playlist.inProgress.childElementCount === 0) {
                 // this might be where i need to ask for spotify access to export playlist
@@ -52,6 +53,7 @@ class Song {
             
             song.addToWIP()
         } else if (e.target.id === "details") {
+            debugger
             song.toggleSongDetails()
         }
     }

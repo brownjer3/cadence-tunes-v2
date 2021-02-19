@@ -14,24 +14,23 @@ class SpotifyApi {
     getGenres() {
         fetch(this.authUrl)
         .then(r => r.json())
-        .then((genres) => {
-            // debugger
+        .then(genres => {
             genres.forEach((genre) => {
                 const g = new Genre(genre)
                 g.addToDom()
-
             })
         })
     }
 
-    loadGenre() {
-        fetch(this.genreUrl + new URLSearchParams({genre: this}))
-        .then(r => r.json())
-        .then(data => {
-            const g = new Genre(data)
-            g.addToDom()
-        })
-    }
+    // SAVING IN CASE I END UP GETTING GENRE ICONS
+    // loadGenre() {
+    //     fetch(this.genreUrl + new URLSearchParams({genre: this}))
+    //     .then(r => r.json())
+    //     .then(data => {
+    //         const g = new Genre(data)
+    //         g.addToDom()
+    //     })
+    // }
 
     getRecs() {
         const genre = document.querySelector('input[name="genre"]:checked').value
