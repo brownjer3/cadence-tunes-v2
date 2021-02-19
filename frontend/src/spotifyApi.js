@@ -8,16 +8,24 @@ class SpotifyApi {
     constructor(port) {
         this.authUrl = `${port}/spotifyAuth`
         this.recsUrl = `${port}/spotifyRecs?`
+        this.genreUrl = `${port}/spotifyGenre?`
     }
 
     getGenres() {
         fetch(this.authUrl)
         .then(r => r.json())
         .then(genres => {
-            genres.forEach((genre) => {
-                const g = new Genre(genre)
-                g.addToDom()
-            })
+            debugger
+            // genres.forEach((genre) => loadGenre(genre))
+        })
+    }
+
+    loadGenre() {
+        fetch(this.genreUrl + new URLSearchParams({genre: this}))
+        .then(r => r.json())
+        .then(data => {
+            const g = new Genre(data)
+            g.addToDom()
         })
     }
 

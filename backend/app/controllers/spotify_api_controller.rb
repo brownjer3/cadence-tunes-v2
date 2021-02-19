@@ -4,9 +4,22 @@ class SpotifyApiController < ApplicationController
     def authenticate
         # this authenticate action (and future refresh action) might need to be a before_action
         RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
-        genres = RSpotify::Recommendations.available_genre_seeds
-        render json: genres
+        # genres = RSpotify::Recommendations.available_genre_seeds
+        genres = Genre.popular.collect{|g| g.gsub(/-/,"_")}
+        categories = RSpotify::Category.list
+        matches = categories.filter {|c| genres.include?(c.id)}
+        byebug
+        full_genres = matches.collect { |m| RSpotify::Category.find(m.id)}
+    
+        render json: full_genres
     end
+
+    # def load_genres
+        
+    #     full_genres = request.params['genres'].collect { |g| RSpotify::Category.find(g)}
+    #     byebug
+        
+    # end
 
     def recs
         recs = RSpotify::Recommendations.generate(seed_genres: [request.params['genre']], target_tempo: request.params['cadence'].to_i)
