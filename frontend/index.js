@@ -4,9 +4,9 @@ const playlistApi = new PlaylistApi(port)
 const spotifyApi = new SpotifyApi(port)
 // const spotifyRecs = new SpotifyApi(port)
 
-
-// submit form button
+// buttons
 const submit = document.getElementById('submit')
+const edit = document.getElementById('edit')
 
 submit.addEventListener('click', (e) => {
     e.preventDefault()

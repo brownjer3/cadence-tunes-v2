@@ -44,6 +44,7 @@ class Song {
                 // this might be where i need to ask for spotify access to export playlist
                 const playlistName = prompt("Give your playlist a name:")
                 document.getElementById('playlistName').innerText = playlistName
+                edit.style.display = 'inline'
             }
             song.addToWIP()
         } else if (e.target.id === "details") {

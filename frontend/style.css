@@ -5,3 +5,7 @@
 #top {
     background-color: purple;
 }
+
+#edit {
+    display: none;
+}
