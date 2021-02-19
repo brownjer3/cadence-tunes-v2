@@ -13,11 +13,16 @@ const wipInfo = document.getElementById('wip-info')
 
 submit.addEventListener('click', (e) => {
     e.preventDefault()
-
     //check that the fields have content
     //submit fetch request
     spotifyApi.getRecs()
 })
+
+// I AM HERE!!!!!
+// save.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     spotifyApi.save()
+// })
 
 playlistApi.getPlaylists()
 spotifyApi.getGenres()

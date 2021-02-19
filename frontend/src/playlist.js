@@ -47,5 +47,9 @@ class Playlist {
         })
     }
 
+    save() {
+
+    }
+
 
 }
