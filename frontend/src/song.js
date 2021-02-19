@@ -60,14 +60,20 @@ class Song {
         if (activeDetails.length === 0) {
             this.displaySongDetails()
         } else {
-            activeDetails[0].remove()
-            this.displaySongDetails()
+            // debugger
+            if (activeDetails[0].id === `details-${this.spotifyId}`) {
+                activeDetails[0].remove()
+            } else {
+                activeDetails[0].remove()
+                this.displaySongDetails()
+            }
         }
     }
 
     displaySongDetails = () => {
         // artist, length, preview, image?
         const songDetails = document.createElement('div')
+        songDetails.id = `details-${this.spotifyId}`
         songDetails.classList.add('songDetails')
         songDetails.innerHTML = `
                 <div>Artist: ${this.artist}</div>
