@@ -4,14 +4,18 @@ class SpotifyApiController < ApplicationController
     def authenticate
         # this authenticate action (and future refresh action) might need to be a before_action
         RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
-        # genres = RSpotify::Recommendations.available_genre_seeds
-        genres = Genre.popular.collect{|g| g.gsub(/-/,"_")}
-        categories = RSpotify::Category.list
-        matches = categories.filter {|c| genres.include?(c.id)}
-        byebug
-        full_genres = matches.collect { |m| RSpotify::Category.find(m.id)}
+        genres = RSpotify::Recommendations.available_genre_seeds
+        render json: genres
+
+
+        # SAVING THIS JUST IN CASE I WANT TO GRAB ICONS
+        # genres = Genre.popular.collect{|g| g.gsub(/-/,"_")}
+        # categories = RSpotify::Category.list
+        # matches = categories.filter {|c| genres.include?(c.id)}
+        # byebug
+        # full_genres = matches.collect { |m| RSpotify::Category.find(m.id)}
     
-        render json: full_genres
+        # render json: full_genres
     end
 
     # def load_genres

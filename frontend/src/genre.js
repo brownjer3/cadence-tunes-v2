@@ -2,7 +2,7 @@ class Genre {
 
     static all = []
 
-    constructor({name}) {
+    constructor(name) {
         this.name = name
 
         this.input = document.createElement('div')
