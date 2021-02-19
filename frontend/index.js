@@ -6,7 +6,10 @@ const spotifyApi = new SpotifyApi(port)
 
 // buttons
 const submit = document.getElementById('submit')
+const wipTools = document.getElementById('WIP-tools')
 const edit = document.getElementById('edit')
+const save = document.getElementById('save')
+const wipInfo = document.getElementById('wip-info')
 
 submit.addEventListener('click', (e) => {
     e.preventDefault()
