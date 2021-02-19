@@ -9,7 +9,7 @@ class Song {
         this.name = data.name
         this.spotify_id = data.id
         this.artist = data.artists[0].name
-        this.length = data.duration_ms / 60000
+        this.length = Song.milisecondsToMinutes(data.duration_ms)
         this.photo_url = data.album.images[0].url
         this.preview_url = data.preview_url
 
@@ -95,5 +95,11 @@ class Song {
             return document.createElement('div')
         }
     }
+
+    static milisecondsToMinutes(ms) {
+        const mins = Math.floor(ms / 60000)
+        const secs = Math.floor((ms / 1000) % 60)
+        return `${mins}:${secs}`
+      }
 
 }
