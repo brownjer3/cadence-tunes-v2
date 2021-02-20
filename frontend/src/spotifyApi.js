@@ -43,8 +43,18 @@ class SpotifyApi {
         fetch(this.recsUrl + new URLSearchParams(data))
         .then((r) => r.json())
         .then(recs => {
-            recs.forEach((rec) => {
-                // debugger
+            recs.forEach((spotify_data) => {
+                debugger
+                const rec = {
+                    name: spotify_data.name,
+                    spotifyId: spotify_data.id,
+                    artist: spotify_data.artists[0].name,
+                    album: spotify_data.album.name,
+                    length: Song.milisecondsToMinutes(spotify_data.duration_ms),
+                    // albumPhoto: spotify_data.album.images[0].url,
+                    previewUrl: spotify_data.preview_url
+                }
+
                 const song = new Song({...rec})
                 
                 song.addToDom()

@@ -8,11 +8,12 @@ class Song {
 
     constructor(data) {
         this.name = data.name
-        this.spotifyId = data.id
-        this.artist = data.artists[0].name
-        this.album = data.album.name
-        this.length = Song.milisecondsToMinutes(data.duration_ms)
-        // this.albumPhoto = data.album.images[0].url
+        this.spotifyId = data.spotify_id
+        this.artist = data.artist
+        this.album = data.album
+        this.length = data.length
+        // this.albumPhoto = album.images[0].url
+        this.playlist_id = data.playlist_id
         this.previewUrl = data.preview_url
 
         this.div = document.createElement('div')
@@ -21,6 +22,20 @@ class Song {
 
         Song.all.push(this)
     }
+
+    // static buildSavedSong({name, spotify_id, artist, album, length, playlist_id, preview_url}){
+    //     this.name = name
+    //     this.spotifyId = spotify_id
+    //     this.artist = artist
+    //     this.album = album
+    //     this.length = length
+    //     // this.albumPhoto = album.images[0].url
+    //     this.playlist_id = playlist_id
+    //     this.previewUrl = preview_url
+
+    //     this.div = document.createElement('div')
+    //     Song.saved.push(this)
+    // }
 
     render() {
         this.div.innerHTML = `

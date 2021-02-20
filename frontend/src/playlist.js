@@ -5,15 +5,18 @@ class Playlist {
     static wipUl = document.getElementById('wipUl')
     static playlistName = document.getElementById('playlistName')
 
-    constructor({id, name}) {
+    constructor({id, name, songs}) {
         this.name = name
         this.id = id
+        this.songs = songs
         // this.userName = user.name
         // this.songs = songs
 
         this.li = document.createElement('li')
         this.li.dataset["id"] = id
         // this.li.id = id
+
+        // this.songs = []
 
         Playlist.all.push(this)
     }
@@ -33,9 +36,9 @@ class Playlist {
         this.li.addEventListener('click', this.displaySongs)
     }
 
-    songs() {
-        return Song.all.filter((s) => s.playlistId === Number(this.id))
-    }
+    // songs() {
+    //     return Song.all.filter((s) => s.playlistId === Number(this.id))
+    // }
 
     displaySongs = (e) => {
         const songList = document.createElement('ul')
