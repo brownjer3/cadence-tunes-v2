@@ -41,8 +41,6 @@ class PlaylistApi {
         .then((playlist) => {
             const p = new Playlist({id: Number(playlist.data.id), ...playlist.data.attributes})
             p.addToDom()
-            p.associate()
-            //remove WIP Info here
         })
     }
 }

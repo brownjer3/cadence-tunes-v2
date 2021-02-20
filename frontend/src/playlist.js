@@ -8,14 +8,9 @@ class Playlist {
     constructor({id, name}) {
         this.name = name
         this.id = Number(id)
-        // this.songs = songs
-        // this.userName = user.name
 
         this.li = document.createElement('li')
         this.li.dataset["id"] = id
-        // this.li.id = id
-
-        // this.songs = []
 
         Playlist.all.push(this)
     }
@@ -34,7 +29,6 @@ class Playlist {
     }
 
     addToDom() {
-        // debugger
         Playlist.recentList.appendChild(this.render())
         this.associate()
         Playlist.resetWip()
