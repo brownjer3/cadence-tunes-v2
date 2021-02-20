@@ -1,11 +1,19 @@
-#builder {
+/* #builder {
     background-color: grey;
 }
 
 #top {
-    background-color: blue;
-}
+    background-color: #718dbf;
+} */
+
+/* * {
+    background-color: #a4547d;
+} */
 
 #WIP-tools {
     display: none;
+}
+
+#playlistName {
+    color: #77c298;
 }
