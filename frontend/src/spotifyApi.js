@@ -34,7 +34,7 @@ class SpotifyApi {
 
     getRecs() {
         const genre = document.querySelector('input[name="genre"]:checked').value
-        const cadence = document.getElementById('cadence').value
+        const cadence = parseInt(document.getElementById('cadence')).value
         const data = {
             genre: genre,
             cadence: cadence
