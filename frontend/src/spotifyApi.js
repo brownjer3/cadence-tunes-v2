@@ -44,7 +44,6 @@ class SpotifyApi {
         .then((r) => r.json())
         .then(recs => {
             recs.forEach((spotify_data) => {
-                debugger
                 const rec = {
                     name: spotify_data.name,
                     spotifyId: spotify_data.id,
@@ -54,6 +53,7 @@ class SpotifyApi {
                     // albumPhoto: spotify_data.album.images[0].url,
                     previewUrl: spotify_data.preview_url
                 }
+                debugger
 
                 const song = new Song({...rec})
                 

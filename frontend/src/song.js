@@ -8,13 +8,13 @@ class Song {
 
     constructor(data) {
         this.name = data.name
-        this.spotifyId = data.spotify_id
+        this.spotifyId = data.spotifyId
         this.artist = data.artist
         this.album = data.album
         this.length = data.length
         // this.albumPhoto = album.images[0].url
-        this.playlist_id = data.playlist_id
-        this.previewUrl = data.preview_url
+        this.playlist_id = data.playlistId
+        this.previewUrl = data.previewUrl
 
         this.div = document.createElement('div')
         // this.li = document.createElement('li')
@@ -38,6 +38,7 @@ class Song {
     // }
 
     render() {
+        debugger
         this.div.innerHTML = `
             <li id='${this.spotifyId}'>
                 <span>${this.name}</span> by <span>${this.artist}</span>
