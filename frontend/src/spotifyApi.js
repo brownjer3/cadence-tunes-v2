@@ -50,6 +50,7 @@ class SpotifyApi {
                 song.addToDom()
             })
         })
+        // ADD A CATCH FOR WHEN THERE ARE NO RECS
     }
 
 

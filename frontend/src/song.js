@@ -11,7 +11,7 @@ class Song {
         this.artist = data.artists[0].name
         this.album = data.album.name
         this.length = Song.milisecondsToMinutes(data.duration_ms)
-        this.albumPhoto = data.album.images[0].url
+        // this.albumPhoto = data.album.images[0].url
         this.previewUrl = data.preview_url
 
         this.div = document.createElement('div')

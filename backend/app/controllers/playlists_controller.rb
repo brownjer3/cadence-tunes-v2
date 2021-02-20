@@ -5,10 +5,22 @@ class PlaylistsController < ApplicationController
     end
 
     def show
-        # playlist = Playlist.find(id: params[:id])
+        # byebug
+        playlist = Playlist.find(id: params[:id])
     end
 
     def create
-
+        # byebug
+        playlist = Playlist.new(playlist_params)
+        if playlist.save
+            render json: PlaylistSerializer.new(playlist)
+        else
+            render json: {error: "Unable to save playlist"}
+        end
     end
+
+    private
+    def playlist_params 
+        params.require(:playlist).permit(:name, :user_id)
+    end 
 end

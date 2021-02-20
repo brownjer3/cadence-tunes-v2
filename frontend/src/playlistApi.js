@@ -1,7 +1,6 @@
 // handle all fetch requests for playlists
 class PlaylistApi {
 
-
     constructor(port) {
         this.baseUrl = `${port}/playlists`
     }
@@ -11,17 +10,17 @@ class PlaylistApi {
         .then(r => r.json())
         .then(playlists => {
             playlists.data.forEach((playlist) => {
-                const i = new Playlist({id: playlist.id, ...playlist.attributes})
-                i.addToDom()
+                const p = new Playlist({id: playlist.id, ...playlist.attributes})
+                p.addToDom()
             })
         })
     }
 
     save() {
         const playlist = {
-            name: Playlist.playlistName.innerText
+            name: Playlist.playlistName.innerText,
+            user_id: 3
             // desc: tbd,
-            // user_id: tbd,"
         }
         const configObj = {
             method: "POST", 
@@ -33,6 +32,10 @@ class PlaylistApi {
         }
         fetch(this.baseUrl, configObj)
         .then(r => r.json())
-        .then(json => {debugger})
+        .then((playlist) => {
+            // debugger
+            const p = new Playlist({id: playlist.data.id, ...playlist.data.attributes})
+            p.addToDom()
+        })
     }
 }

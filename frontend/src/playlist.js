@@ -1,7 +1,7 @@
 class Playlist {
 
     static all = []
-    static topList = document.getElementById('topList')
+    static recentList = document.getElementById('recentList')
     static wipUl = document.getElementById('wipUl')
     static playlistName = document.getElementById('playlistName')
 
@@ -13,7 +13,7 @@ class Playlist {
 
         this.li = document.createElement('li')
         this.li.dataset["id"] = id
-        this.li.id = id
+        // this.li.id = id
 
         Playlist.all.push(this)
     }
@@ -28,7 +28,8 @@ class Playlist {
     }
 
     addToDom() {
-        Playlist.topList.appendChild(this.render())
+        // debugger
+        Playlist.recentList.appendChild(this.render())
         this.li.addEventListener('click', this.displaySongs)
     }
 
