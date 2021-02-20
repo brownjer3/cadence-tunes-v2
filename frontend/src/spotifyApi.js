@@ -53,10 +53,7 @@ class SpotifyApi {
                     // albumPhoto: spotify_data.album.images[0].url,
                     previewUrl: spotify_data.preview_url
                 }
-                debugger
-
                 const song = new Song({...rec})
-                
                 song.addToDom()
             })
         })

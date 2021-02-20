@@ -38,7 +38,6 @@ class Song {
     // }
 
     render() {
-        debugger
         this.div.innerHTML = `
             <li id='${this.spotifyId}'>
                 <span>${this.name}</span> by <span>${this.artist}</span>

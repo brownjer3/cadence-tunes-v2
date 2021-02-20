@@ -44,11 +44,10 @@ class Playlist {
         const songList = document.createElement('ul')
         const id = Number(e.currentTarget.dataset.id)
         const p = Playlist.all.find((p) => p.id === id)
-        debugger
-        p.songs().forEach((song) => {
+        p.songs.forEach((song) => {
             const li = document.createElement('li')
             li.innerText = song.name
-            songList.appendChild(song)
+            songList.appendChild(li)
         })
         e.currentTarget.appendChild(songList)
     }
