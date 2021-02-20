@@ -37,5 +37,7 @@ class PlaylistApi {
             const p = new Playlist({id: playlist.data.id, ...playlist.data.attributes})
             p.addToDom()
         })
+        // debugger
+        SongApi.saveSongs()
     }
 }

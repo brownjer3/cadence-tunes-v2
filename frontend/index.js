@@ -2,6 +2,7 @@
 const port = "http://localhost:3000"
 const playlistApi = new PlaylistApi(port)
 const spotifyApi = new SpotifyApi(port)
+const songApi = new SongApi(port)
 // const spotifyRecs = new SpotifyApi(port)
 
 // buttons
