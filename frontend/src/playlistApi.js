@@ -1,13 +1,8 @@
-// handle all fetch requests for playlists
 class PlaylistApi {
 
     constructor(port) {
         this.baseUrl = `${port}/playlists`
     }
-
-    //     static wipIds() {
-    //     return Song.inProgress.filter((s) => s.spotifyId)
-    // }
 
     getPlaylists() {
         fetch(this.baseUrl)
