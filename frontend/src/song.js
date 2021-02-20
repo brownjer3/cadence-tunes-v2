@@ -1,6 +1,7 @@
 class Song {
 
     static all = []
+    static inProgress = []
     static recList = document.getElementById('recList')
     static form = document.getElementById('form')
 
@@ -35,18 +36,18 @@ class Song {
     addToDom() {
         Song.form.style.display = "none"
         Song.recList.appendChild(this.render())
-        // list.insertBefore(newItem, list.childNodes[0])
     }
 
     handleClick = (e) => {
         const song = Song.all.find(song => song.spotifyId === e.target.parentElement.id)
         if (e.target.id === "add") {
-            if (Playlist.inProgress.childElementCount === 0) {
+            if (Playlist.wipUl.childElementCount === 0) {
                 // this might be where i need to ask for spotify access to export playlist
                 const playlistName = prompt("Give your playlist a name:")
                 document.getElementById('playlistName').innerText = playlistName
                 wipTools.style.display = 'inline'
             }
+            Song.inProgress.push(song)
             song.addToWIP()
         } else if (e.target.id === "details") {
             song.toggleSongDetails()
@@ -54,7 +55,7 @@ class Song {
     }
 
     addToWIP = () => {
-        Playlist.inProgress.appendChild(this.render())
+        Playlist.wipUl.appendChild(this.render())
     }
 
     toggleSongDetails = () => {

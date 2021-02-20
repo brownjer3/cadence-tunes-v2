@@ -18,6 +18,10 @@ submit.addEventListener('click', (e) => {
     spotifyApi.getRecs()
 })
 
+save.addEventListener('click', () => {
+    debugger
+})
+
 // I AM HERE!!!!!
 // save.addEventListener('click', (e) => {
 //     e.preventDefault()

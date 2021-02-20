@@ -2,7 +2,7 @@ class Playlist {
 
     static all = []
     static topList = document.getElementById('topList')
-    static inProgress = document.getElementById('playlistInProgress')
+    static wipUl = document.getElementById('wipUl')
 
     constructor({id, name}) {
         this.name = name
