@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
     def index
-        playlists = Playlist.all
+        playlists = Playlist.ten_recent
         render json: PlaylistSerializer.new(playlists)
     end
 
