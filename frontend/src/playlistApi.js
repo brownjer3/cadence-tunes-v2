@@ -5,6 +5,10 @@ class PlaylistApi {
         this.baseUrl = `${port}/playlists`
     }
 
+    //     static wipIds() {
+    //     return Song.inProgress.filter((s) => s.spotifyId)
+    // }
+
     getPlaylists() {
         fetch(this.baseUrl)
         .then(r => r.json())
@@ -20,7 +24,8 @@ class PlaylistApi {
         const playlist = {
             name: Playlist.playlistName.innerText,
             // need to remove this hard coded user id
-            user_id: 3
+            user_id: 3, 
+            songs: Song.inProgress, 
             // desc: tbd,
         }
         const configObj = {
@@ -34,10 +39,10 @@ class PlaylistApi {
         fetch(this.baseUrl, configObj)
         .then(r => r.json())
         .then((playlist) => {
-            const p = new Playlist({id: playlist.data.id, ...playlist.data.attributes})
+            const p = new Playlist({id: Number(playlist.data.id), ...playlist.data.attributes})
             p.addToDom()
         })
         // debugger
-        SongApi.saveSongs()
+        // SongApi.saveSongs()
     }
 }

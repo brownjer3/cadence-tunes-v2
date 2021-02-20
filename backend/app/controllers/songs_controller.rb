@@ -1,12 +1,14 @@
 class SongsController < ApplicationController
-    def create
-        song = Song.new(song_params)
-        if song.save
-            render json: {song}
-        else
-            render json: {error: "Unable to save song"}
-        end
-    end
+    # def create
+
+    #     song = Song.new(song_params)
+    #     byebug
+    #     if song.save
+    #         render json: SongSerializer.new(song)
+    #     else
+    #         render json: {error: "Unable to save song"}
+    #     end
+    # end
 
     private
     def song_params 

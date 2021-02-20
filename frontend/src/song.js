@@ -2,6 +2,7 @@ class Song {
 
     static all = []
     static inProgress = []
+    static saved = []
     static recList = document.getElementById('recList')
     static form = document.getElementById('form')
 

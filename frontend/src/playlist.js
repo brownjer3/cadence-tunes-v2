@@ -15,8 +15,6 @@ class Playlist {
         this.li.dataset["id"] = id
         // this.li.id = id
 
-        this.songs = []
-
         Playlist.all.push(this)
     }
 
@@ -35,12 +33,16 @@ class Playlist {
         this.li.addEventListener('click', this.displaySongs)
     }
 
+    songs() {
+        return Song.all.filter((s) => s.playlistId === Number(this.id))
+    }
+
     displaySongs = (e) => {
         const songList = document.createElement('ul')
-        debugger
         const id = Number(e.currentTarget.dataset.id)
         const p = Playlist.all.find((p) => p.id === id)
-        p.songs.forEach((song) => {
+        debugger
+        p.songs().forEach((song) => {
             const li = document.createElement('li')
             li.innerText = song.name
             songList.appendChild(song)
@@ -55,6 +57,8 @@ class Playlist {
             i.addToDom()
         })
     }
+
+
 
 
 }
