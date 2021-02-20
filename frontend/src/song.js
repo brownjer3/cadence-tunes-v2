@@ -2,7 +2,7 @@ class Song {
 
     static all = []
     static inProgress = []
-    static saved = []
+    // static saved = []
     static recList = document.getElementById('recList')
     static form = document.getElementById('form')
 
@@ -13,7 +13,7 @@ class Song {
         this.album = data.album
         this.length = data.length
         // this.albumPhoto = album.images[0].url
-        this.playlist_id = data.playlistId
+        this.playlistId = data.playlistId
         this.previewUrl = data.previewUrl
 
         this.div = document.createElement('div')
@@ -23,19 +23,6 @@ class Song {
         Song.all.push(this)
     }
 
-    // static buildSavedSong({name, spotify_id, artist, album, length, playlist_id, preview_url}){
-    //     this.name = name
-    //     this.spotifyId = spotify_id
-    //     this.artist = artist
-    //     this.album = album
-    //     this.length = length
-    //     // this.albumPhoto = album.images[0].url
-    //     this.playlist_id = playlist_id
-    //     this.previewUrl = preview_url
-
-    //     this.div = document.createElement('div')
-    //     Song.saved.push(this)
-    // }
 
     render() {
         this.div.innerHTML = `

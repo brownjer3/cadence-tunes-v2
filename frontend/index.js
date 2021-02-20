@@ -20,8 +20,6 @@ submit.addEventListener('click', (e) => {
 })
 
 save.addEventListener('click', () => {
-    // save the playlist
-    // save each song, associating with new playlist
     playlistApi.save()
 })
 
