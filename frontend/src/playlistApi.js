@@ -16,4 +16,23 @@ class PlaylistApi {
             })
         })
     }
+
+    save() {
+        const playlist = {
+            name: Playlist.playlistName.innerText
+            // desc: tbd,
+            // user_id: tbd,"
+        }
+        const configObj = {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            }, 
+            body: JSON.stringify(playlist)
+        }
+        fetch(this.baseUrl, configObj)
+        .then(r => r.json())
+        .then(json => {debugger})
+    }
 }

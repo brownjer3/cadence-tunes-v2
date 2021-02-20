@@ -3,6 +3,7 @@ class Playlist {
     static all = []
     static topList = document.getElementById('topList')
     static wipUl = document.getElementById('wipUl')
+    static playlistName = document.getElementById('playlistName')
 
     constructor({id, name}) {
         this.name = name
@@ -45,10 +46,6 @@ class Playlist {
             const i = new Playlist({id: playlist.id, ...playlist.attributes})
             i.addToDom()
         })
-    }
-
-    save() {
-
     }
 
 

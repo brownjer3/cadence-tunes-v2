@@ -43,8 +43,8 @@ class Song {
         if (e.target.id === "add") {
             if (Playlist.wipUl.childElementCount === 0) {
                 // this might be where i need to ask for spotify access to export playlist
-                const playlistName = prompt("Give your playlist a name:")
-                document.getElementById('playlistName').innerText = playlistName
+                const name = prompt("Give your playlist a name:")
+                Playlist.playlistName.innerText = name
                 wipTools.style.display = 'inline'
             }
             Song.inProgress.push(song)

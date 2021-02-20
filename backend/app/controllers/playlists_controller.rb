@@ -5,6 +5,10 @@ class PlaylistsController < ApplicationController
     end
 
     def show
-        playlist = Playlist.find(id: params[:id])
+        # playlist = Playlist.find(id: params[:id])
+    end
+
+    def create
+
     end
 end
