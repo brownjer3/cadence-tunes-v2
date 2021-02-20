@@ -35,6 +35,7 @@ class Song {
     addToDom() {
         Song.form.style.display = "none"
         Song.recList.appendChild(this.render())
+        // list.insertBefore(newItem, list.childNodes[0])
     }
 
     handleClick = (e) => {
