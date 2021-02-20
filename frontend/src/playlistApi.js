@@ -19,6 +19,7 @@ class PlaylistApi {
     save() {
         const playlist = {
             name: Playlist.playlistName.innerText,
+            // need to remove this hard coded user id
             user_id: 3
             // desc: tbd,
         }
@@ -33,7 +34,6 @@ class PlaylistApi {
         fetch(this.baseUrl, configObj)
         .then(r => r.json())
         .then((playlist) => {
-            // debugger
             const p = new Playlist({id: playlist.data.id, ...playlist.data.attributes})
             p.addToDom()
         })
