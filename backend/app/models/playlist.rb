@@ -1,11 +1,10 @@
 class Playlist < ApplicationRecord
-    belongs_to :user
+    # belongs_to :user
     has_many :songs
 
     scope :ten_recent, -> { order(created_at: :desc).limit(10) }
 
     def songs=(array_of_song_attributes)
-        # for each song, find or create by spotify id
         playlist_songs = array_of_song_attributes.map do |song_attributes|
             Song.create(
                 name: song_attributes['name'], 

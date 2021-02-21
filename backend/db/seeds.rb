@@ -7,17 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-jerry = User.create(name: "Jerry")
-
-Playlist.create(name: "Slow Jogs", user: jerry)
-Playlist.create(name: "Hip Hop Speed Work", user: jerry)
-Playlist.create(name: "Interval Training", user: jerry)
-Playlist.create(name: "Cool Down Tunes", user: jerry)
-Playlist.create(name: "190 BPM", user: jerry)
-Playlist.create(name: "180 BPM", user: jerry)
-Playlist.create(name: "170 BPM", user: jerry)
-Playlist.create(name: "Sprints", user: jerry)
-Playlist.create(name: "Jogging to Paul Simon", user: jerry)
-Playlist.create(name: "Rock N Roll @ 180 BPM", user: jerry)
-Playlist.create(name: "Heavy Metal Intervals", user: jerry)
+p1 = Playlist.create(name: "Slow Jogs")
+p2 = Playlist.create(name: "Hip Hop Speed Work")
+p3 = Playlist.create(name: "Interval Training")
+p4 = Playlist.create(name: "Cool Down Tunes")
+p5 = Playlist.create(name: "190 BPM")
+p6 = Playlist.create(name: "180 BPM")
+p7 = Playlist.create(name: "170 BPM")
+p8 = Playlist.create(name: "Sprints")
+p9 = Playlist.create(name: "Jogging to Paul Simon")
+p10 = Playlist.create(name: "Rock N Roll @ 180 BPM")
+p11 = Playlist.create(name: "Heavy Metal Intervals")
