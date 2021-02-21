@@ -22,13 +22,14 @@ const wipInfo = document.getElementById('wip-info')
 
 document.addEventListener('keydown', (e) => {
     if (e.code === "Enter") {
-        if (validCadence() && !validGenres()) {
-            step2()
-        } else if(validCadence() && validGenres()) {
-            step3()
-        } else if (cadence.offsetParent === null && validGenres()) {
+        debugger
+        if (cadencePresent() && !validGenres()) {
+            if (validateCadenceRange()) {step2()}
+        } else if(!cadencePresent() && validGenres()) {
             toggleSteps()
             step3()
+        } else if (cadencePresent() && validGenres()) {
+            if (validateCadenceRange()) {step3()}
         }
     }
 })
@@ -61,8 +62,17 @@ function step3() {
     listActiveCadence()
 }
 
-function validCadence() {
-    return cadence.offsetParent !== null && cadence.value >= 120 && cadence.value <= 260
+function validateCadenceRange() {
+    if (cadence.value < 120) {
+        alert("Please enter a valid cadence above 120")
+    } else if (cadence.value > 260) {
+        alert("Please enter a valid cadence below 260")
+    }
+    return (cadence.value > 120 && cadence.value < 260)
+}
+
+function cadencePresent() {
+    return cadence.offsetParent !== null
 }
 
 function validGenres() {
