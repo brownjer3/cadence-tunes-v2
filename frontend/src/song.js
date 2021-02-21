@@ -106,8 +106,8 @@ class Song {
 
     static milisecondsToMinutes(ms) {
         const mins = Math.floor(ms / 60000)
-        const secs = Math.floor((ms / 1000) % 60)
-        return `${mins}:${secs}`
+        const secs = ((ms % 60000) / 1000).toFixed(0)
+        return mins + ":" + (secs < 10 ? '0' : '') + secs;
       }
 
 }
