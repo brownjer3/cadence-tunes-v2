@@ -36,10 +36,9 @@ class Playlist {
 
     addToDom() {
         Playlist.recentList.insertBefore(this.render(), Playlist.recentList.childNodes[0])
-        // Playlist.wipUl.insertBefore(li, Playlist.wipUl.childNodes[0])
         this.associate()
         Playlist.resetWip()
-        this.li.addEventListener('click', this.displaySongs)
+        this.li.addEventListener('click', this.toggleSongs)
     }
 
     static resetWip() {
@@ -55,16 +54,29 @@ class Playlist {
         })
     }
 
-    displaySongs = (e) => {
+    toggleSongs() {
+        const p = Playlist.all.find((p) => p.id === Number(this.dataset.id))
+        if (this.childElementCount > 1) {
+            p.hideSongs()
+        } else {
+            p.displaySongs()
+        }
+    }
+
+    hideSongs = () => {
+        this.li.getElementsByClassName('unstyled-list')[0].remove()
+    }
+
+    displaySongs = () => {
         const songList = document.createElement('ul')
-        const id = Number(e.currentTarget.dataset.id)
-        const p = Playlist.all.find((p) => p.id === id)
-        p.songs().forEach((song) => {
+        songList.classList.add('unstyled-list')
+        // const p = Playlist.all.find((p) => p.id === id)
+        this.songs().forEach((song) => {
             const li = document.createElement('li')
             li.innerText = song.name
             songList.appendChild(li)
         })
-        e.currentTarget.appendChild(songList)
+        this.li.appendChild(songList)
     }
 
 
