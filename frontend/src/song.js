@@ -60,7 +60,11 @@ class Song {
     }
 
     addToWIP = () => {
-        Playlist.wipUl.appendChild(this.render())
+        const li = this.render()
+        li.getElementsByTagName("I")[1].classList.replace('fa-plus', 'fa-minus-circle')
+        li.getElementsByTagName("I")[1].id = "remove"
+        li.getElementsByTagName("I")[0].remove()
+        Playlist.wipUl.appendChild(li)
     }
 
     toggleSongDetails = () => {

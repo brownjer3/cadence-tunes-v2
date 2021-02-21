@@ -14,6 +14,10 @@
     display: none;
 }
 
+#remove {
+    color: #a23543;
+}
+
 #save {
     color: #5f9b79;
 }
