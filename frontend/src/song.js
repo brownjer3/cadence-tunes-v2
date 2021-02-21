@@ -26,12 +26,12 @@ class Song {
 
     render() {
         this.li.innerHTML = `
-            <div class='row align-items-center'>
+            <div class='row align-items-center text-start'>
                 <div class='col-4'>
-                    <img src=${this.albumPhoto} class='rounded w-25 h-auto'>
+                    <img src=${this.albumPhoto} class='rounded w-50 h-auto'>
                 </div>
                 <div class='col-8' id='extra-${this.spotifyId}'>
-                    <span class='me-3'><strong>${this.name}</strong> by ${this.artist}</span>
+                    <span class='me-3'><strong class='lead'>${this.name}</strong> by ${this.artist}</span>
                     <i id='details' class="fas fa-info-circle me-2"></i>
                     <i id='add' class="fas fa-plus"></i>
                 </div>
