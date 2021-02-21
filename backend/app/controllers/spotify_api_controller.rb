@@ -11,15 +11,12 @@ class SpotifyApiController < ApplicationController
             genres[id] = g
         end
         categories = RSpotify::Category.list(limit: 50, country: 'US')
-        
         matches = categories.filter {|c| genres.keys.include?(c.id)}
-
         render json: matches
     end
 
     def recs
         genres = request.params['genres'].split(",")
-        genres.pop()
         recs = RSpotify::Recommendations.generate(seed_genres: genres, target_tempo: request.params['cadence'])
         render json: recs.tracks
     end
