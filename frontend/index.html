@@ -14,15 +14,29 @@
 <div id='intro' class='container'>
     <div class="h-75 row align-items-center">
         <div class='col'>
-            <div class='display-3 pb-3'>What's your target running cadence?</div>
-            <input type="number" id='cadence' name='cadence'>
+            <div id='intro-question' class='display-3 pb-3'>What's your target running cadence?</div>
+
+            <div id='intro-builder' class='row align-items-center'>
+                <div class='col-4'></div>
+                <div class='col-4'>
+                    <input type="number" id="cadence" name="cadence" placeholder="(Number of steps/minute)" class='form-control form-control-sm w-100'>
+                    
+                </div>
+                <div class='col-1'><small>(enter)</small></div>
+                <div class='col-3'></div>
+            </div>
+            
         </div>
+        <!-- <div class='d-flex align-items-end justify-content-around' id='cadence-tips'>
+            <small class='w-25'>Cadence is defined as the total number of steps you take per minute. One easy way to measure your cadence for running is to count the times your feet hit the ground in 60 seconds. Runners usually have a higher cadence because they usually go faster than beginners. </small>
+            <small class='w-25'>Gernerally speaking, if your easy pace is faster than 10 minutes per mile, your cadence should be 170+ steps per minute. If your easy pace is slower than 10 minutes per mile, your cadence should be 160+ steps per minute.</small>
+        </div> -->
+
     </div>
 </div>
 
 
     <div class='container' style='display:none'>
-        <h1 id='title' class='text-center display-1'>Cadence Tunes v2</h1>
         <div class='row'>
             <!-- Playlist Builder Container -->
             <div id='builder' class='col'>
@@ -31,8 +45,7 @@
                 <form id='form'>
                     <label for="genre">What type of music do you like to run to?</label>
                     <div id='genres' class='row'></div>
-                    
-                    <label for="cadence">Cadence</label>
+
                     <input type="number" id='cadence' name='cadence'>
 
                     <input type='submit' id='submit'>

@@ -25,13 +25,5 @@ class Genre {
         // this.input.addEventListener('click', getCadence)
     }
 
-    // displaySongs = (e) => {
-    //     const songList = document.createElement('ul')
-    //     const song = document.createElement('li')
-    //     song.innerText = "song name test"
-    //     songList.appendChild(song)
-    //     e.target.appendChild(songList)
-    // }
-
 
 }

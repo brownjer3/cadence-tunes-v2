@@ -34,11 +34,11 @@ class SpotifyApi {
 
     getRecs() {
         const genre = document.querySelector('input[name="genre"]:checked').value
-        let cadence = document.getElementById('cadence').value
-        cadence = Number(cadence + '.01')
+        cadence.value
+        cadenceFloat = Number(cadenceFloat + '.01')
         const data = {
             genre: genre,
-            cadence: cadence
+            cadence: cadenceFloat
         }
         fetch(this.recsUrl + new URLSearchParams(data))
         .then((r) => r.json())
