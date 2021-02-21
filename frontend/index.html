@@ -28,13 +28,27 @@
 </div>
 
 
-    <div class="container" id='step2'>
+    <div class="container" id='phase2'>
         <div class="row">
             <!-- Playlist Builder Container -->
             <div id="builder" class='col pt-3'>
                 <h3 class='display-5'>Recommended Songs</h3>
-                    <small id='list-active-genres' class='m-2'></small><small class='text-decoration-underline fw-light'>(change)</small><br>
-                    <small id='list-active-cadence' class='m-2'></small><small class='text-decoration-underline fw-light'>(change)</small>
+                <div class='row row-cols-2 d-flex align-items-center'>
+                    <div class='col text-end'>
+                        <small id='list-active-genres' class='m-2'></small>
+                    </div>
+                    <div class='col text-start'>
+                        <small id='change-genres' class='text-decoration-underline fw-light'>(change)</small>
+                    </div>
+                </div>
+                <div class='row row-cols-2 d-flex align-items-center'>
+                    <div class='col text-end'>
+                        <small id='list-active-cadence' class='m-2'></small>
+                    </div>
+                    <div class='col text-start'>
+                        <small id='change-cadence' class='text-decoration-underline fw-light'>(change)</small>
+                    </div>
+                </div>
                 <ul id='recList' class="list-unstyled text-start pt-3"></ul>
             </div>
             <!-- Top Playlists Container -->

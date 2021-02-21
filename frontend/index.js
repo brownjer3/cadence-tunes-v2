@@ -6,7 +6,7 @@ const songApi = new SongApi(port)
 // const spotifyRecs = new SpotifyApi(port)
 
 const intro = document.getElementById('intro')
-const step2 = document.getElementById('step2')
+const phase2 = document.getElementById('phase2')
 const cadence = document.getElementById('cadence')
 const introQuestion = document.getElementById('intro-question')
 const introBuilder = document.getElementById('intro-builder')
@@ -22,28 +22,80 @@ const wipInfo = document.getElementById('wip-info')
 
 document.addEventListener('keydown', (e) => {
     if (e.code === "Enter") {
-        if (!!document.getElementById('genres')) {
-            Genre.selectGenres()
-        } else if (cadence.value >= 120 && cadence.value <= 260 ) {
-            introQuestion.innerText = "What type of music do you like to run to?"
-            introBuilder.innerHTML = `<div id='genres' class='row'><small>Select up to 5 then (enter)</small></div>`
-            document.getElementById('genres').addEventListener('keydown', Genre.selectGenres)
-            spotifyApi.getGenres()
+        debugger
+        if (validCadence() && Genre.active.length === 0) {
+            step2()
+        } else if(validCadence() && Genre.active.length > 0) {
+            //check validity
+            step3()
+            // Genre.selectGenres()
+        } else if (cadence.offsetParent === null && validGenres()) {
+            debugger
         }
     }
 })
 
-save.addEventListener('click', () => {
-    playlistApi.save()
+document.addEventListener('click', (e) => {
+    if (e.target === save) {
+        playlistApi.save()
+    } else if (e.target.id === "change-cadence") {
+        changeCadence()
+    }
 })
+
+// const isVisible = (el) => {
+//     el.offsetParent !== "null"
+// }
+
+function step2() {
+    introQuestion.innerText = "What type of music do you like to run to?"
+    introBuilder.innerHTML = `<div id='genres' class='row'><small>Select up to 5 then (enter)</small></div>`
+    document.getElementById('genres').addEventListener('keydown', Genre.selectGenres)
+    spotifyApi.getGenres()
+}
+
+function step3() {
+    recList.innerHTML = ""
+    spotifyApi.getRecs()
+    Genre.listActiveGenres()
+    listActiveCadence()
+}
+
+function validCadence() {
+    return cadence.offset !== null && cadence.value >= 120 && cadence.value <= 260
+}
+
+function validGenres() {
+    return Genre.active.length > 0 && Genre.active.length <= 5
+}
 
 function toggleSteps() {
     if (intro.style.display !== 'block') {
         intro.style.display = 'block'
-        step2.style.display = 'none'
+        phase2.style.display = 'none'
     } else {
         intro.style.display = 'none'
-        step2.style.display = 'block'
+        phase2.style.display = 'block'
+    }
+}
+
+function changeCadence() {
+    const cadenceField = document.getElementById('list-active-cadence')
+    cadenceField.innerHTML = ""
+    cadenceField.appendChild(cadence)
+    cadenceField.classList.remove('w-100')
+    cadenceField.classList.add('w-50', 'form-control-sm', 'float-end')
+    // cadenceField.placeholder = "Steps/minute"
+    // cadenceField.innerHTML = '<input type="number" id="cadence" name="cadence" placeholder="Steps/minute" class="form-control form-control-sm w-50 float-end">'
+    const cadencePrompt = document.getElementById('change-cadence')
+    cadencePrompt.innerText = "(enter)"
+}
+
+const changeRecParams = (e) => {
+    if (e.target.id === "change-cadence") {
+
+    } else if (e.target.id === "change-genres") {
+
     }
 }
 
