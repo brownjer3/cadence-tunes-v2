@@ -20,8 +20,7 @@ class PlaylistApi {
             name: Playlist.playlistName.innerText,
             // need to remove this hard coded user id
             user_id: 3, 
-            songs: Song.inProgress, 
-            // desc: tbd,
+            songs: Song.inProgress
         }
         const configObj = {
             method: "POST", 

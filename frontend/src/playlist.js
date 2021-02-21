@@ -15,6 +15,12 @@ class Playlist {
         Playlist.all.push(this)
     }
 
+    static createPlaylistName() {
+        const name = prompt("Give your playlist a name:")
+        Playlist.playlistName.innerText = name
+        wipTools.style.display = 'inline'
+    }
+
     songs() {
         return Song.all.filter((s) => s.playlistId === this.id)
     }

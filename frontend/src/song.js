@@ -46,11 +46,8 @@ class Song {
     handleClick = (e) => {
         const song = Song.all.find(song => song.spotifyId === e.currentTarget.id)
         if (e.target.id === "add") {
-            if (Playlist.wipUl.childElementCount === 0) {
-                // this might be where i need to ask for spotify access to export playlist
-                const name = prompt("Give your playlist a name:")
-                Playlist.playlistName.innerText = name
-                wipTools.style.display = 'inline'
+            if (Song.inProgress.length === 0) {
+                Playlist.createPlaylistName()
             }
             Song.inProgress.push(song)
             song.addToWIP()

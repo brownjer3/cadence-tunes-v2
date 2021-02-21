@@ -36,6 +36,8 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target === save) {
         playlistApi.save()
+    } else if (e.target === edit) {
+        Playlist.createPlaylistName()
     } else if (e.target.id === "change-cadence") {
         changeCadence()
     } else if (e.target.id === 'change-genres') {
@@ -43,10 +45,6 @@ document.addEventListener('click', (e) => {
         step2()
     }
 })
-
-// const isVisible = (el) => {
-//     el.offsetParent !== "null"
-// }
 
 function step2() {
     Genre.active = []
