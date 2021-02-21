@@ -28,9 +28,9 @@ class Song {
         this.li.innerHTML = `
             <div class='row align-items-center'>
                 <div class='col-4'>
-                    <img src=${this.albumPhoto} class='rounded float-start img-thumbnail'>
+                    <img src=${this.albumPhoto} class='rounded w-25 h-auto'>
                 </div>
-                <div class='col-8' id='additional-${this.spotifyId}'>
+                <div class='col-8' id='extra-${this.spotifyId}'>
                     <span class='me-3'><strong>${this.name}</strong> by ${this.artist}</span>
                     <i id='details' class="fas fa-info-circle me-2"></i>
                     <i id='add' class="fas fa-plus"></i>
@@ -47,6 +47,7 @@ class Song {
     }
 
     handleClick = (e) => {
+        debugger
         const song = Song.all.find(song => song.spotifyId === e.currentTarget.id)
         if (e.target.id === "add") {
             if (Playlist.wipUl.childElementCount === 0) {
@@ -80,8 +81,7 @@ class Song {
         }
     }
 
-    displaySongDetails = (element) => {
-        // artist, length, preview, image?
+    displaySongDetails = () => {
         const songDetails = document.createElement('div')
         songDetails.id = `details-${this.spotifyId}`
         songDetails.classList.add('songDetails')
@@ -90,7 +90,7 @@ class Song {
                 <div>Length: ${this.length}</div>
         `
         songDetails.appendChild(this.includePreview())
-        this.li.appendChild(songDetails)
+        document.getElementById(`extra-${this.spotifyId}`).appendChild(songDetails)
     }
 
     includePreview = () => {
