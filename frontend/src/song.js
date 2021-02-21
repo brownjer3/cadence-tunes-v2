@@ -56,6 +56,10 @@ class Song {
             song.addToWIP()
         } else if (e.target.id === "details") {
             song.toggleSongDetails()
+        } else if (e.target.id === "remove") {
+            const i = Song.inProgress.indexOf(this)
+            Song.inProgress.splice(i, 1)
+            Song.recList.appendChild(this.render())
         }
     }
 
