@@ -13,10 +13,14 @@
 #phase2 {
     display: none;
 }
-/* 
-#wipSpan {
-    background-color: #a4547d;
-} */
+
+#save {
+    color: #5f9b79;
+}
+
+#edit {
+    color: #cba456;
+}
 
 #recList {
     background-color: #435472;
