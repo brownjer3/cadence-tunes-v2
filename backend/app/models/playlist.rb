@@ -14,6 +14,7 @@ class Playlist < ApplicationRecord
                 album: song_attributes['album'],
                 length: song_attributes['length'],
                 preview_url: song_attributes['previewUrl'], 
+                album_photo: song_attributes['albumPhoto'],
                 playlist_id: self.id
             )
         end

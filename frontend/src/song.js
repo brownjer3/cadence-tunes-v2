@@ -4,6 +4,7 @@ class Song {
     static inProgress = []
     // static saved = []
     static recList = document.getElementById('recList')
+    
 
     constructor(data) {
         this.name = data.name
@@ -11,28 +12,33 @@ class Song {
         this.artist = data.artist
         this.album = data.album
         this.length = data.length
-        // this.albumPhoto = album.images[0].url
+        this.albumPhoto = data.albumPhoto
         this.playlistId = data.playlistId
         this.previewUrl = data.previewUrl
 
-        this.div = document.createElement('div')
-        // this.li = document.createElement('li')
-        // this.input.classList.add("col-2", "p-3")
+        this.li = document.createElement('li')
+        this.li.classList.add('p-2')
+        this.li.id = this.spotifyId
 
         Song.all.push(this)
     }
 
 
     render() {
-        this.div.innerHTML = `
-            <li id='${this.spotifyId}'>
-                <span>${this.name}</span> by <span>${this.artist}</span>
-                <i id='details' class="fas fa-info-circle"></i>
-                <i id='add' class="fas fa-plus"></i>
-            </li>
+        this.li.innerHTML = `
+            <div class='row align-items-center'>
+                <div class='col-4'>
+                    <img src=${this.albumPhoto} class='rounded float-start img-thumbnail'>
+                </div>
+                <div class='col-8' id='additional-${this.spotifyId}'>
+                    <span class='me-3'><strong>${this.name}</strong> by ${this.artist}</span>
+                    <i id='details' class="fas fa-info-circle me-2"></i>
+                    <i id='add' class="fas fa-plus"></i>
+                </div>
+            </div>
         `
-        this.div.addEventListener('click', this.handleClick)
-        return this.div
+        this.li.addEventListener('click', this.handleClick)
+        return this.li
     }
 
     addToDom() {
@@ -41,7 +47,7 @@ class Song {
     }
 
     handleClick = (e) => {
-        const song = Song.all.find(song => song.spotifyId === e.target.parentElement.id)
+        const song = Song.all.find(song => song.spotifyId === e.currentTarget.id)
         if (e.target.id === "add") {
             if (Playlist.wipUl.childElementCount === 0) {
                 // this might be where i need to ask for spotify access to export playlist
@@ -74,19 +80,17 @@ class Song {
         }
     }
 
-    displaySongDetails = () => {
+    displaySongDetails = (element) => {
         // artist, length, preview, image?
         const songDetails = document.createElement('div')
         songDetails.id = `details-${this.spotifyId}`
         songDetails.classList.add('songDetails')
         songDetails.innerHTML = `
-                <div>Artist: ${this.artist}</div>
                 <div>Album: ${this.album}</div>
                 <div>Length: ${this.length}</div>
         `
         songDetails.appendChild(this.includePreview())
-        this.div.appendChild(songDetails)
-        
+        this.li.appendChild(songDetails)
     }
 
     includePreview = () => {

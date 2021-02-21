@@ -29,7 +29,7 @@ class SpotifyApi {
                     artist: spotify_data.artists[0].name,
                     album: spotify_data.album.name,
                     length: Song.milisecondsToMinutes(spotify_data.duration_ms),
-                    // albumPhoto: spotify_data.album.images[0].url,
+                    albumPhoto: spotify_data.album.images[1].url,
                     previewUrl: spotify_data.preview_url
                 }
                 const song = new Song({...rec})
