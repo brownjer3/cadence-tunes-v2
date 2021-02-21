@@ -2,10 +2,8 @@ class Song {
 
     static all = []
     static inProgress = []
-    // static saved = []
     static recList = document.getElementById('recList')
     
-
     constructor(data) {
         this.name = data.name
         this.spotifyId = data.spotifyId
