@@ -33,11 +33,12 @@ class SpotifyApi {
     // }
 
     getRecs() {
-        const genre = document.querySelector('input[name="genre"]:checked').value
+        debugger
+        const genres = Genre.active
         cadence.value
         cadenceFloat = Number(cadenceFloat + '.01')
         const data = {
-            genre: genre,
+            genre: genres,
             cadence: cadenceFloat
         }
         fetch(this.recsUrl + new URLSearchParams(data))
@@ -56,6 +57,7 @@ class SpotifyApi {
                 const song = new Song({...rec})
                 song.addToDom()
             })
+
         })
         // ADD A CATCH FOR WHEN THERE ARE NO RECS
     }
