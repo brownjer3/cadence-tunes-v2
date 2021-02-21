@@ -40,7 +40,6 @@ class Song {
     }
 
     addToDom() {
-        toggleSteps()
         Song.recList.appendChild(this.render())
     }
 

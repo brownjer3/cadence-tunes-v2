@@ -23,14 +23,13 @@ const wipInfo = document.getElementById('wip-info')
 document.addEventListener('keydown', (e) => {
     if (e.code === "Enter") {
         debugger
-        if (validCadence() && Genre.active.length === 0) {
+        if (validCadence() && !validGenres()) {
             step2()
-        } else if(validCadence() && Genre.active.length > 0) {
-            //check validity
+        } else if(validCadence() && validGenres()) {
             step3()
-            // Genre.selectGenres()
         } else if (cadence.offsetParent === null && validGenres()) {
-            debugger
+            toggleSteps()
+            step3()
         }
     }
 })
@@ -40,6 +39,9 @@ document.addEventListener('click', (e) => {
         playlistApi.save()
     } else if (e.target.id === "change-cadence") {
         changeCadence()
+    } else if (e.target.id === 'change-genres') {
+        toggleSteps()
+        step2()
     }
 })
 
@@ -48,6 +50,7 @@ document.addEventListener('click', (e) => {
 // }
 
 function step2() {
+    Genre.active = []
     introQuestion.innerText = "What type of music do you like to run to?"
     introBuilder.innerHTML = `<div id='genres' class='row'><small>Select up to 5 then (enter)</small></div>`
     document.getElementById('genres').addEventListener('keydown', Genre.selectGenres)
@@ -62,7 +65,7 @@ function step3() {
 }
 
 function validCadence() {
-    return cadence.offset !== null && cadence.value >= 120 && cadence.value <= 260
+    return cadence.offsetParent !== null && cadence.value >= 120 && cadence.value <= 260
 }
 
 function validGenres() {
@@ -70,12 +73,12 @@ function validGenres() {
 }
 
 function toggleSteps() {
-    if (intro.style.display !== 'block') {
-        intro.style.display = 'block'
-        phase2.style.display = 'none'
-    } else {
+    if (intro.style.display !== 'none') {
         intro.style.display = 'none'
         phase2.style.display = 'block'
+    } else {
+        intro.style.display = 'block'
+        phase2.style.display = 'none'
     }
 }
 
@@ -85,23 +88,13 @@ function changeCadence() {
     cadenceField.appendChild(cadence)
     cadenceField.classList.remove('w-100')
     cadenceField.classList.add('w-50', 'form-control-sm', 'float-end')
-    // cadenceField.placeholder = "Steps/minute"
-    // cadenceField.innerHTML = '<input type="number" id="cadence" name="cadence" placeholder="Steps/minute" class="form-control form-control-sm w-50 float-end">'
     const cadencePrompt = document.getElementById('change-cadence')
     cadencePrompt.innerText = "(enter)"
 }
 
-const changeRecParams = (e) => {
-    if (e.target.id === "change-cadence") {
-
-    } else if (e.target.id === "change-genres") {
-
-    }
-}
-
 function listActiveCadence() {
-        const genreHeader = document.getElementById("list-active-cadence")
-        genreHeader.innerText = `Cadence: ${cadence.value}`
+    const genreHeader = document.getElementById("list-active-cadence")
+    genreHeader.innerText = `Cadence: ${cadence.value}`
 }
 
 playlistApi.getPlaylists()
