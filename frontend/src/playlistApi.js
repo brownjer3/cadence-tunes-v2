@@ -18,8 +18,6 @@ class PlaylistApi {
     save() {
         const playlist = {
             name: Playlist.playlistName.innerText,
-            // need to remove this hard coded user id
-            user_id: 3, 
             songs: Song.inProgress
         }
         const configObj = {

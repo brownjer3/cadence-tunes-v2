@@ -1,6 +1,6 @@
 class PlaylistSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :user_id, :songs
+  attributes :name, :songs
   
   # reference github.com/Netflix/fast_json_api 
 end

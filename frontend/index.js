@@ -22,7 +22,6 @@ const wipInfo = document.getElementById('wip-info')
 
 document.addEventListener('keydown', (e) => {
     if (e.code === "Enter") {
-        debugger
         if (cadencePresent() && !validGenres()) {
             if (validateCadenceRange()) {step2()}
         } else if(!cadencePresent() && validGenres()) {

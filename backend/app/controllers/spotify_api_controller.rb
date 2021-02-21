@@ -21,11 +21,11 @@ class SpotifyApiController < ApplicationController
         render json: recs.tracks
     end
 
-    private
-    def params
-        # DO NOT RUN SERVER UNTIL THIS CHANGES!!!
-        # params.permit(:genre, :cadence)
-    end
+    # private
+    # def params
+    #     # DO NOT RUN SERVER UNTIL THIS CHANGES!!!
+    #     # params.permit(:genre, :cadence)
+    # end
 
 end
 

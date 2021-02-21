@@ -5,7 +5,6 @@ class PlaylistsController < ApplicationController
     end
 
     def show
-        # byebug
         playlist = Playlist.find(id: params[:id])
     end
 
@@ -21,6 +20,6 @@ class PlaylistsController < ApplicationController
 
     private
     def playlist_params 
-        params.require(:playlist).permit(:name, :user_id, songs: [])
+        params.require(:playlist).permit(:name, :total_time, songs: [])
     end 
 end
