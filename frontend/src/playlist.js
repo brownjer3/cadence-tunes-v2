@@ -35,7 +35,8 @@ class Playlist {
     }
 
     addToDom() {
-        Playlist.recentList.appendChild(this.render())
+        Playlist.recentList.insertBefore(this.render(), Playlist.recentList.childNodes[0])
+        // Playlist.wipUl.insertBefore(li, Playlist.wipUl.childNodes[0])
         this.associate()
         Playlist.resetWip()
         this.li.addEventListener('click', this.displaySongs)
