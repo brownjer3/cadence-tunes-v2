@@ -61,7 +61,6 @@ class Genre {
     }
 
     static selectGenres() {
-        debugger
         if (Genre.active.length > 0 && Genre.active.length <= 5) {
             spotifyApi.getRecs()
         } else if (Genre.active.length === 0) {
@@ -69,6 +68,12 @@ class Genre {
         } else if (Genre.active.length > 5) {
             alert("You can only select up to 5 genres")
         }
+    }
+
+    static setSeedStr() {
+        let str = ""
+        Genre.active.forEach(g => str += g.seedId + ",")
+        return str
     }
 
 

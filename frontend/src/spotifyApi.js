@@ -1,8 +1,3 @@
-// this class should...
-// fetch genres
-// fetch recommendations
-// create playlists
-
 class SpotifyApi {
 
     constructor(port) {
@@ -22,25 +17,9 @@ class SpotifyApi {
         })
     }
 
-    // SAVING IN CASE I END UP GETTING GENRE ICONS
-    // loadGenre() {
-    //     fetch(this.genreUrl + new URLSearchParams({genre: this}))
-    //     .then(r => r.json())
-    //     .then(data => {
-    //         const g = new Genre(data)
-    //         g.addToDom()
-    //     })
-    // }
-
     getRecs() {
+        const data = SpotifyApi.recParams()
         debugger
-        const genres = Genre.active
-        cadence.value
-        cadenceFloat = Number(cadenceFloat + '.01')
-        const data = {
-            genre: genres,
-            cadence: cadenceFloat
-        }
         fetch(this.recsUrl + new URLSearchParams(data))
         .then((r) => r.json())
         .then(recs => {
@@ -62,7 +41,13 @@ class SpotifyApi {
         // ADD A CATCH FOR WHEN THERE ARE NO RECS
     }
 
-
-
+    static recParams() {
+        const data = {}
+        const float = cadence.value
+        const cadenceFloat = Number(float + '.01')
+        data.cadence = cadenceFloat
+        data.genres = Genre.setSeedStr()
+        return data
+    }
 
 }

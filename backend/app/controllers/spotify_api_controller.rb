@@ -15,27 +15,13 @@ class SpotifyApiController < ApplicationController
         matches = categories.filter {|c| genres.keys.include?(c.id)}
 
         render json: matches
-
-
-        # SAVING THIS JUST IN CASE I WANT TO GRAB ICONS
-        # genres = Genre.popular.collect{|g| g.gsub(/-/,"_")}
-        # categories = RSpotify::Category.list
-        # matches = categories.filter {|c| genres.include?(c.id)}
-        # byebug
-        # full_genres = matches.collect { |m| RSpotify::Category.find(m.id)}
-    
-        # render json: full_genres
     end
 
-    # def load_genres
-        
-    #     full_genres = request.params['genres'].collect { |g| RSpotify::Category.find(g)}
-    #     byebug
-        
-    # end
-
     def recs
-        recs = RSpotify::Recommendations.generate(seed_genres: [request.params['genre']], target_tempo: request.params['cadence'])
+        genres = request.params['genres'].split(",")
+        genres.pop()
+        byebug
+        recs = RSpotify::Recommendations.generate(seed_genres: genres, target_tempo: request.params['cadence'])
         render json: recs.tracks
     end
 
