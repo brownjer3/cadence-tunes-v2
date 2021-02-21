@@ -10,6 +10,7 @@ const step2 = document.getElementById('step2')
 const cadence = document.getElementById('cadence')
 const introQuestion = document.getElementById('intro-question')
 const introBuilder = document.getElementById('intro-builder')
+const wipSpan = document.getElementById('wipSpan')
 
 
 // buttons

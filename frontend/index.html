@@ -29,30 +29,31 @@
 
 
     <div class="container" id='step2'>
-        <div class="mb-auto row">
+        <div class="row">
             <!-- Playlist Builder Container -->
-            <div id="builder" class='col'>
-                <h3>Recommended Songs</h3>
-                <ul id='recList' class="list-unstyled text-start"></ul>
+            <div id="builder" class='col p-5'>
+                <h3 class='display-4'>Recommended Songs</h3>
+                <ul id='recList' class="list-unstyled text-start pt-3"></ul>
             </div>
             <!-- Top Playlists Container -->
             <div id='top' class='col-3'>
-                <span class='d-flex align-items-center justify-content-between'>
-                    <h3 id='playlistName' class='display-4'></h3>
-                    
-                    <!-- <div id='WIP-tools' class="btn-group btn-group-sm" role="group" aria-label="Basic example"> -->
-                    <div id='WIP-tools'>
-                        <!-- <button id='wip-info' type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></button> -->
-                        <button id='edit' type="button" class='btn btn-warning'>
-                            <i id='edit' class="far fa-edit"></i>
-                        </button>
-                        <button id='save' type="button" class="btn btn-success">
-                            <i id='save' class="fas fa-file-upload"></i>
-                        </button>
-                      </div>
-                    
-                </span>
-                <ul id='wipUl' class="list-unstyled text-start"></ul>
+                <div id='wipSpan' class='p-2'>
+                    <span class='d-flex align-items-center justify-content-between'>
+                        <h3 id='playlistName' class='display-2'></h3>
+                        
+                        <!-- <div id='WIP-tools' class="btn-group btn-group-sm" role="group" aria-label="Basic example"> -->
+                        <div id='WIP-tools'>
+                            <!-- <button id='wip-info' type="button" class="btn btn-secondary"><i class="fas fa-info-circle"></i></button> -->
+                            <button id='edit' type="button" class='btn btn-warning'>
+                                <i id='edit' class="far fa-edit"></i>
+                            </button>
+                            <button id='save' type="button" class="btn btn-success">
+                                <i id='save' class="fas fa-file-upload"></i>
+                            </button>
+                        </div>
+                    </span>
+                    <ul id='wipUl' class="list-unstyled text-start"></ul>
+                </div>
                 <h3>Recently Created Playlists</h3>
                 <ul id='recentList' class="list-unstyled text-start"></ul>
             </div>
