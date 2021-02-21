@@ -15,7 +15,6 @@
     <div class="h-75 row align-items-center">
         <div class='col'>
             <div id='intro-question' class='display-3 pb-3'>What's your target running cadence?</div>
-
             <div id='intro-builder' class='row align-items-center'>
                 <div class='col-4'></div>
                 <div class='col-4'>
@@ -24,28 +23,18 @@
                 <div class='col-1'><small>(enter)</small></div>
                 <div class='col-3'></div>
             </div>
-            
         </div>
     </div>
 </div>
 
 
-    <div class='container' style='display:none'>
-        <div class='row'>
+    <div class="container" id='step2'>
+        <div class="mb-auto row">
             <!-- Playlist Builder Container -->
-            <div id='builder' class='col'>
-                <h3>Playlist Builder</h3>
-                <ul id='recList'></ul>
-                <!-- <form id='form'>
-                    <label for="genre">What type of music do you like to run to?</label>
-                    <div id='genres' class='row'></div>
-
-                    <input type="number" id='cadence' name='cadence'>
-
-                    <input type='submit' id='submit'>
-                </form> -->
+            <div id="builder" class='col'>
+                <h3>Recommended Songs</h3>
+                <ul id='recList' class="list-unstyled text-start"></ul>
             </div>
-
             <!-- Top Playlists Container -->
             <div id='top' class='col-3'>
                 <span class='d-flex align-items-center justify-content-between'>
@@ -63,10 +52,9 @@
                       </div>
                     
                 </span>
-                    <ul id='wipUl'></ul>
-
-                <h3>Recently Created</h3>
-                <ul id='recentList'></ul>
+                <ul id='wipUl' class="list-unstyled text-start"></ul>
+                <h3>Recently Created Playlists</h3>
+                <ul id='recentList' class="list-unstyled text-start"></ul>
             </div>
         </div>
     </div>

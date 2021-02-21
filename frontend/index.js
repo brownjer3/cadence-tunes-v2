@@ -5,7 +5,8 @@ const spotifyApi = new SpotifyApi(port)
 const songApi = new SongApi(port)
 // const spotifyRecs = new SpotifyApi(port)
 
-
+const intro = document.getElementById('intro')
+const step2 = document.getElementById('step2')
 const cadence = document.getElementById('cadence')
 const introQuestion = document.getElementById('intro-question')
 const introBuilder = document.getElementById('intro-builder')
@@ -34,5 +35,15 @@ document.addEventListener('keydown', (e) => {
 save.addEventListener('click', () => {
     playlistApi.save()
 })
+
+function toggleSteps() {
+    if (intro.style.display !== 'block') {
+        intro.style.display = 'block'
+        step2.style.display = 'none'
+    } else {
+        intro.style.display = 'none'
+        step2.style.display = 'block'
+    }
+}
 
 playlistApi.getPlaylists()

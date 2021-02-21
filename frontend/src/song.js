@@ -4,7 +4,6 @@ class Song {
     static inProgress = []
     // static saved = []
     static recList = document.getElementById('recList')
-    static form = document.getElementById('form')
 
     constructor(data) {
         this.name = data.name
@@ -37,7 +36,7 @@ class Song {
     }
 
     addToDom() {
-        Song.form.style.display = "none"
+        toggleSteps()
         Song.recList.appendChild(this.render())
     }
 
@@ -66,7 +65,6 @@ class Song {
         if (activeDetails.length === 0) {
             this.displaySongDetails()
         } else {
-            // debugger
             if (activeDetails[0].id === `details-${this.spotifyId}`) {
                 activeDetails[0].remove()
             } else {

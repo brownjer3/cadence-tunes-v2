@@ -19,7 +19,6 @@ class SpotifyApi {
 
     getRecs() {
         const data = SpotifyApi.recParams()
-        debugger
         fetch(this.recsUrl + new URLSearchParams(data))
         .then((r) => r.json())
         .then(recs => {
