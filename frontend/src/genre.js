@@ -69,9 +69,11 @@ class Genre {
     static selectGenres() {
         if (Genre.active.length > 0 && Genre.active.length <= 5) {
             spotifyApi.getRecs()
+            Genre.listActiveGenres()
+            listActiveCadence()
         } else if (Genre.active.length === 0) {
             alert("Please select a genre")
-        } else if (Genre.active.length > 5) {
+        } else if (Genre.active.length >= 5) {
             alert("You can only select up to 5 genres")
         }
     }

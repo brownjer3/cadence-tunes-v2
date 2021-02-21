@@ -41,8 +41,6 @@ function toggleSteps() {
     if (intro.style.display !== 'block') {
         intro.style.display = 'block'
         step2.style.display = 'none'
-        Genre.listActiveGenres()
-        listActiveCadence()
     } else {
         intro.style.display = 'none'
         step2.style.display = 'block'
@@ -52,7 +50,6 @@ function toggleSteps() {
 function listActiveCadence() {
         const genreHeader = document.getElementById("list-active-cadence")
         genreHeader.innerText = `Cadence: ${cadence.value}`
-
 }
 
 playlistApi.getPlaylists()
