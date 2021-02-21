@@ -20,7 +20,6 @@ class SpotifyApiController < ApplicationController
     def recs
         genres = request.params['genres'].split(",")
         genres.pop()
-        byebug
         recs = RSpotify::Recommendations.generate(seed_genres: genres, target_tempo: request.params['cadence'])
         render json: recs.tracks
     end
