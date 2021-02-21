@@ -47,7 +47,6 @@ class Song {
     }
 
     handleClick = (e) => {
-        debugger
         const song = Song.all.find(song => song.spotifyId === e.currentTarget.id)
         if (e.target.id === "add") {
             if (Playlist.wipUl.childElementCount === 0) {

@@ -20,6 +20,12 @@ class Genre {
         return name.toLowerCase().replace(" ","-")
     }
 
+    static listActiveGenres() {
+        const str = Genre.active.map((g) => g.name).join(", ")
+        const genreHeader = document.getElementById("list-active-genres")
+        genreHeader.innerText = `Genres: ${str}`
+    }
+
     render() { 
     this.input.innerHTML = `
         <input id='${this.seedId}' type="checkbox" class="btn-check form-check-input" name="genre" value='${this.seedId}'>
