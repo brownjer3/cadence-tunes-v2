@@ -10,7 +10,11 @@ class PlaylistApi {
         .then(playlists => {
             playlists.data.forEach((playlist) => {
                 const p = new Playlist({id: Number(playlist.id), ...playlist.attributes})
-                p.addToDom()
+                p.li.addEventListener('click', p.toggleSongs)
+                Playlist.recentList.appendChild(p.render())
+                playlist.attributes.songs.forEach((s) => {
+                    new Song({...s})
+                })
             })
         })
     }

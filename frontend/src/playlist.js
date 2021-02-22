@@ -8,7 +8,7 @@ class Playlist {
     constructor({id, name}) {
         this.name = name
         this.id = Number(id)
-
+        
         this.li = document.createElement('li')
         this.li.dataset["id"] = id
 
@@ -70,7 +70,6 @@ class Playlist {
     displaySongs = () => {
         const songList = document.createElement('ul')
         songList.classList.add('unstyled-list')
-        // const p = Playlist.all.find((p) => p.id === id)
         this.songs().forEach((song) => {
             const li = document.createElement('li')
             li.innerText = song.name

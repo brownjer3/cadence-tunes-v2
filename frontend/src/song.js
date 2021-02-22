@@ -6,13 +6,14 @@ class Song {
     
     constructor(data) {
         this.name = data.name
-        this.spotifyId = data.spotifyId
+        this.spotifyId = data.spotify_id
         this.artist = data.artist
         this.album = data.album
         this.length = data.length
-        this.albumPhoto = data.albumPhoto
-        this.playlistId = data.playlistId
-        this.previewUrl = data.previewUrl
+        this.albumPhoto = data.album_photo
+        this.playlistId = data.playlist_id
+        this.previewUrl = data.preview_url
+        this.id = data.id
 
         this.li = document.createElement('li')
         this.li.classList.add('p-2')
