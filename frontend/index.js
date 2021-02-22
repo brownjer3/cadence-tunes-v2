@@ -36,6 +36,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target === save) {
         playlistApi.save()
+        alert("Playlist saved!")
     } else if (e.target === edit) {
         Playlist.createPlaylistName()
     } else if (e.target.id === "change-cadence") {

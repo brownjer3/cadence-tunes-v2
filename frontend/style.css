@@ -30,6 +30,10 @@
     background-color: #435472;
 }
 
+#WIP-tools {
+    display: none;
+}
+
 /* #playlistName {
     color: #723a57;
 } */
