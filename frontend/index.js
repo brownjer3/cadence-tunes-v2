@@ -1,9 +1,6 @@
-//this top section should stay here in index.js
 const port = "http://localhost:3000"
 const playlistApi = new PlaylistApi(port)
 const spotifyApi = new SpotifyApi(port)
-const songApi = new SongApi(port)
-// const spotifyRecs = new SpotifyApi(port)
 
 const intro = document.getElementById('intro')
 const phase2 = document.getElementById('phase2')
@@ -102,6 +99,7 @@ function changeCadence() {
 function listActiveCadence() {
     const genreHeader = document.getElementById("list-active-cadence")
     genreHeader.innerText = `Cadence: ${cadence.value}`
+    document.getElementById('change-cadence').innerText = "(change)"
 }
 
 playlistApi.getPlaylists()

@@ -37,7 +37,6 @@ class SpotifyApi {
             })
 
         })
-        // ADD A CATCH FOR WHEN THERE ARE NO RECS
     }
 
     static recParams() {
