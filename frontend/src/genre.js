@@ -41,7 +41,7 @@ class Genre {
 
 
     toggleActive() {
-        console.log(Genre.active)
+        // console.log(Genre.active)
         const img = this.input.getElementsByTagName('IMG')[0]
         if (this.input.checked !== true) {
             this.input.checked = true

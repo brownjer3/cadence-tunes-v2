@@ -19,12 +19,12 @@ const wipInfo = document.getElementById('wip-info')
 
 document.addEventListener('keydown', (e) => {
     if (e.code === "Enter") {
-        if (cadencePresent() && !validGenres()) {
+        if (cadencePresent() && !validGenres()) { // step 1 -> step 2
             if (validateCadenceRange()) {step2()}
-        } else if(!cadencePresent() && validGenres()) {
+        } else if(!cadencePresent() && validGenres()) { // step 2 -> step 3
             toggleSteps()
             step3()
-        } else if (cadencePresent() && validGenres()) {
+        } else if (cadencePresent() && validGenres()) { // step 3 refresh
             if (validateCadenceRange()) {step3()}
         }
     }
