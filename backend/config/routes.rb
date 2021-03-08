@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "playlists#show"
+  root "playlists#index"
 
   resources :songs
   resources :genres
