@@ -1,4 +1,4 @@
-const port = "https://youthful-dubinsky-55803a.netlify.app/"
+const port = "https://youthful-dubinsky-55803a.netlify.app"
 const playlistApi = new PlaylistApi(port)
 const spotifyApi = new SpotifyApi(port)
 
