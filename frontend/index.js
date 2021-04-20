@@ -1,4 +1,6 @@
-const port = "https://youthful-dubinsky-55803a.netlify.app"
+// const port = "https://youthful-dubinsky-55803a.netlify.app"
+const port = "https://fast-sea-71078.herokuapp.com"
+// const port = 'http://localhost:3000'
 const playlistApi = new PlaylistApi(port)
 const spotifyApi = new SpotifyApi(port)
 
@@ -8,7 +10,6 @@ const cadence = document.getElementById('cadence')
 const introQuestion = document.getElementById('intro-question')
 const introBuilder = document.getElementById('intro-builder')
 const wipSpan = document.getElementById('wipSpan')
-
 
 // buttons
 const submit = document.getElementById('submit')
