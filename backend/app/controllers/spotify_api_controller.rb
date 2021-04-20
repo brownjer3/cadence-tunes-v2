@@ -3,7 +3,7 @@ class SpotifyApiController < ApplicationController
 
     def authenticate
         # this authenticate action (and future refresh action) might need to be a before_action
-        RSpotify.authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_CLIENT_SECRET"])
+        RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
         seed_genres = RSpotify::Recommendations.available_genre_seeds
         genres = {}
         seed_genres.each do |g|
