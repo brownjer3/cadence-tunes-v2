@@ -24,7 +24,8 @@ const save = document.getElementById('save')
 const wipInfo = document.getElementById('wip-info')
 
 
-next.addEventListener('click', () => {
+next.addEventListener('click', (e) => {
+    // bug on step 2
     if (cadencePresent() && !validGenres()) { // step 1 -> step 2
         if (validateCadenceRange()) {step2()}
     } else if(!cadencePresent() && validGenres()) { // step 2 -> step 3
