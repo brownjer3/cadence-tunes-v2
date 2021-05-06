@@ -15,22 +15,21 @@ const infoLinks = document.getElementById('info-links')
 const modalInfo = document.getElementById('modal-info')
 
 // buttons
+const enter = document.getElementById('enter')
 const submit = document.getElementById('submit')
 const wipTools = document.getElementById('WIP-tools')
 const edit = document.getElementById('edit')
 const save = document.getElementById('save')
 const wipInfo = document.getElementById('wip-info')
 
-document.addEventListener('keydown', (e) => {
-    if (e.code === "Enter") {
-        if (cadencePresent() && !validGenres()) { // step 1 -> step 2
-            if (validateCadenceRange()) {step2()}
-        } else if(!cadencePresent() && validGenres()) { // step 2 -> step 3
-            toggleSteps()
-            step3()
-        } else if (cadencePresent() && validGenres()) { // step 3 refresh
-            if (validateCadenceRange()) {step3()}
-        }
+enter.addEventListener('click', () => {
+    if (cadencePresent() && !validGenres()) { // step 1 -> step 2
+        if (validateCadenceRange()) {step2()}
+    } else if(!cadencePresent() && validGenres()) { // step 2 -> step 3
+        toggleSteps()
+        step3()
+    } else if (cadencePresent() && validGenres()) { // step 3 refresh
+        if (validateCadenceRange()) {step3()}
     }
 })
 
