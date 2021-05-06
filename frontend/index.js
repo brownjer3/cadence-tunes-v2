@@ -63,7 +63,7 @@ function step2() {
     introQuestion.innerText = "What type of music do you like to run to?"
     introBuilder.innerHTML = `<div id='genres' class='row'><small>Select up to 5 then (enter)</small></div>`
     document.getElementById('genres').addEventListener('keydown', Genre.selectGenres)
-    infoLinks.innerHTML = ''
+    infoLinks.style.display = 'none'
     spotifyApi.getGenres()
 }
 
