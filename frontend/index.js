@@ -9,13 +9,14 @@ const cadence = document.getElementById('cadence')
 const introQuestion = document.getElementById('intro-question')
 const introBuilder = document.getElementById('intro-builder')
 const wipSpan = document.getElementById('wipSpan')
+const prompt = document.getElementById('prompt')
 
 // info modals
 const infoLinks = document.getElementById('info-links')
 const modalInfo = document.getElementById('modal-info')
 
 // buttons
-const enter = document.getElementById('enter')
+const next = document.getElementById('next')
 const submit = document.getElementById('submit')
 const wipTools = document.getElementById('WIP-tools')
 const edit = document.getElementById('edit')
@@ -23,7 +24,7 @@ const save = document.getElementById('save')
 const wipInfo = document.getElementById('wip-info')
 
 
-enter.addEventListener('click', () => {
+next.addEventListener('click', () => {
     if (cadencePresent() && !validGenres()) { // step 1 -> step 2
         if (validateCadenceRange()) {step2()}
     } else if(!cadencePresent() && validGenres()) { // step 2 -> step 3
@@ -61,14 +62,8 @@ infoLinks.addEventListener('click', (e) => {
 function step2() {
     Genre.active = []
     introQuestion.innerText = "What type of music do you like to run to?"
-    introBuilder.innerHTML = `
-        <div>
-            <span class='me-2'>Select up to 5 genres</span>
-            <button id='enter' type="button" class="btn btn-outline-warning">Next</button>
-        </div> 
-        <div id='genres' class='row'>
-            
-        </div>`
+    prompt.innerText = "Select up to 5 genres"
+    introBuilder.innerHTML += `<div id='genres' class='row'></div>`
     document.getElementById('genres').addEventListener('keydown', Genre.selectGenres)
     infoLinks.style.display = 'none'
     spotifyApi.getGenres()
