@@ -10,6 +10,10 @@ const introQuestion = document.getElementById('intro-question')
 const introBuilder = document.getElementById('intro-builder')
 const wipSpan = document.getElementById('wipSpan')
 
+// info modals
+const infoLinks = document.getElementById('info-links')
+const modalInfo = document.getElementById('modal-info')
+
 // buttons
 const submit = document.getElementById('submit')
 const wipTools = document.getElementById('WIP-tools')
@@ -41,6 +45,17 @@ document.addEventListener('click', (e) => {
     } else if (e.target.id === 'change-genres') {
         toggleSteps()
         step2()
+    }
+})
+
+infoLinks.addEventListener('click', (e) => {
+    if (e.target.id === 'how') {
+        // debugger
+        modalInfo.innerText = "how"
+    } else if (e.target.id === 'what') {
+        modalInfo.innerText = "what"
+    } else if (e.target.id === 'why') {
+        modalInfo.innerText = "why"
     }
 })
 
