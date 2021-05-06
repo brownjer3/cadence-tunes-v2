@@ -22,6 +22,7 @@ const edit = document.getElementById('edit')
 const save = document.getElementById('save')
 const wipInfo = document.getElementById('wip-info')
 
+
 enter.addEventListener('click', () => {
     if (cadencePresent() && !validGenres()) { // step 1 -> step 2
         if (validateCadenceRange()) {step2()}
@@ -60,7 +61,14 @@ infoLinks.addEventListener('click', (e) => {
 function step2() {
     Genre.active = []
     introQuestion.innerText = "What type of music do you like to run to?"
-    introBuilder.innerHTML = `<div id='genres' class='row'><small>Select up to 5 then (enter)</small></div>`
+    introBuilder.innerHTML = `
+        <div>
+            <span class='me-2'>Select up to 5 genres</span>
+            <button id='enter' type="button" class="btn btn-outline-warning">Next</button>
+        </div> 
+        <div id='genres' class='row'>
+            
+        </div>`
     document.getElementById('genres').addEventListener('keydown', Genre.selectGenres)
     infoLinks.style.display = 'none'
     spotifyApi.getGenres()
