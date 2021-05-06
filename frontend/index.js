@@ -50,12 +50,11 @@ document.addEventListener('click', (e) => {
 
 infoLinks.addEventListener('click', (e) => {
     if (e.target.id === 'how') {
-        // debugger
-        modalInfo.innerText = "how"
+        modalInfo.innerText = "When running, count the number of times your left foot hits the ground in 60 seconds, then double it to get the total for both feet."
     } else if (e.target.id === 'what') {
-        modalInfo.innerText = "what"
+        modalInfo.innerText = "There's no ideal cadence for everyone. That said, most recreational runners will have a cadence between 150 - 170 with a max of around 180."
     } else if (e.target.id === 'why') {
-        modalInfo.innerText = "why"
+        modalInfo.innerText = "When you have a quicker cadence, your stride becomes shorter, making it easier for your feet to land underneath you, which reduces heel striking, saves your knees, and helps prevent other injuries."
     }
 })
 
